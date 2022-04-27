@@ -1,8 +1,12 @@
 import React from 'react';
+import Header from '../components/Header';
 
 function ExploreFood() {
   return (
-    <div>ExploreFood</div>
+    <div>
+      <Header title="Explore Foods" toHaveSearch={ false } />
+
+    </div>
   );
 }
 
