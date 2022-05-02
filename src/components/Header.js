@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
+import SearchBarHeader from './SearchBarHeader';
 import './Header.css';
 
 function Header({ title, toHaveSearch }) {
@@ -38,7 +39,8 @@ function Header({ title, toHaveSearch }) {
         </button>
       )}
       { isSearchEnabled
-      && (<input type="text" data-testid="search-input" />)}
+        && (<input type="text" data-testid="search-input" />)}
+      <SearchBarHeader />
     </div>
   );
 }
