@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MyContext from '../context/Context';
 import { setSaveEmail, mealsToken, cocktailsToken } from '../storage/setStorage';
 
-function Login({ history }) {
+function Login() {
   const { email, setEmail } = useContext(MyContext);
   const [password, setPassword] = useState('');
   const [isDisabled, setIsDisabled] = useState(true);
+  const history = useHistory();
 
   const emailValidation = () => {
     const MIN_LENGTH = 6;
