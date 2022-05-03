@@ -23,16 +23,16 @@ function Routes() {
       <Route exact path="/" component={ Login } />
       <Route exact path="/foods" component={ Foods } />
       <Route exact path="/drinks" component={ Drinks } />
-      <Route exact path="/foods/{id-da-receita}" component={ FoodsIdReceita } />
-      <Route exact path="/drinks/{id-da-receita}" component={ DrinksIdReceita } />
+      <Route exact path="/foods/:id" component={ FoodsIdReceita } />
+      <Route exact path="/drinks/:id" component={ DrinksIdReceita } />
       <Route
         exact
-        path="/foods/{id-da-receita}/in-progress"
+        path="/foods/:id/in-progress"
         component={ FoodsInProgress }
       />
       <Route
         exact
-        path="/drinks/{id-da-receita}/in-progress"
+        path="/drinks/:id/in-progress"
         component={ DrinksInProgress }
       />
       <Route

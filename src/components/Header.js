@@ -40,7 +40,7 @@ function Header({ title, toHaveSearch }) {
       )}
       { isSearchEnabled
         && (<input type="text" data-testid="search-input" />)}
-      <SearchBarHeader />
+      {toHaveSearch && <SearchBarHeader />}
     </div>
   );
 }

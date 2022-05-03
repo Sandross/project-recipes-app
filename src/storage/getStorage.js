@@ -1,3 +1,3 @@
-const getSaveEmail = () => JSON.parse(localStorage.getItem('user')).email;
+const getSaveEmail = () => JSON.parse(localStorage.getItem('user'))?.email;
 
 export default getSaveEmail;
