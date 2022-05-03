@@ -6,11 +6,12 @@ import getSaveEmail from '../storage/getStorage';
 
 function Profile() {
   const history = useHistory();
+  const getEmail = getSaveEmail();
 
   return (
     <div>
       <Header title="Profile" toHaveSearch={ false } />
-      <p data-testid="profile-email">{getSaveEmail()}</p>
+      { getEmail ? (<p data-testid="profile-email">{getEmail.email}</p>) : '' }
       <button
         data-testid="profile-done-btn"
         type="button"

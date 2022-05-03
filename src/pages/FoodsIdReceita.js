@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { idRecipes } from '../helpers/FoodsAPI';
+import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
+import '../App.css';
 
 function FoodsIdReceita() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
-
+  const history = useHistory();
+  console.log(useParams());
   useEffect(() => {
     idRecipes(id).then(({ meals }) => setRecipes(meals));
   }, [id]);
@@ -16,7 +19,7 @@ function FoodsIdReceita() {
     for (let i = 1; i <= TWENTY; i += 1) {
       if (recipes[0][`strIngredient${i}`] && recipes[0][`strMeasure${i}`]) {
         element.push(
-          <li key={ i }>
+          <li data-testid={ `${i - 1}-ingredient-name-and-measure` } key={ i }>
             { `${recipes[0][`strIngredient${i}`]} - ${recipes[0][`strMeasure${i}`]}` }
           </li>,
         );
@@ -49,8 +52,7 @@ function FoodsIdReceita() {
             Favorite
           </button>
           <p data-testid="recipe-category">{item.strCategory}</p>
-          <ul
-            data-testid={`${index}-ingredient-name-and-measure`}>
+          <ul>
             {handleIngredient().map((list) => list)}
           </ul>
           <p data-testid="instructions">{item.strInstructions}</p>
@@ -63,13 +65,18 @@ function FoodsIdReceita() {
             allowFullScreen
             title={ item.strMeal }
           />
-          <p data-testid={`${index}-recomendation-card`}></p>
-          <button data-testid="start-recipe-btn" type="button">
-            Start Recipe
-          </button>
+          <RecomendationDrinksCard index={ index } />
 
         </div>
       ))}
+      <button
+        data-testid="start-recipe-btn"
+        className="start-recipe-btn"
+        type="button"
+        onClick={ () => history.push(`/foods/${id}/in-progress`) }
+      >
+        Start Recipe
+      </button>
     </div>
   );
 }

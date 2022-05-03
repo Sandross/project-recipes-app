@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './Context';
 
 function Provider({ children }) {
-  const [email, setEmail] = useState('');
-
   return (
-    <MyContext.Provider value={ { email, setEmail } }>
+    <MyContext.Provider>
       {children}
     </MyContext.Provider>
   );
