@@ -1,12 +1,10 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-// import MyContext from '../context/Context';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import getSaveEmail from '../storage/getStorage';
 
 function Profile() {
-  // const { email } = useContext(MyContext);
   const history = useHistory();
 
   return (
