@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import whiteHeartIcon from '../images/whiteHeartIcon.svg';
 import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { favoritedRecipe } from '../storage/setStorage';
 import { getFavoriteRecipes } from '../storage/getStorage';
 
 function FavoriteRecipes() {
-  const [isFavorite, setIsFavorite] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFood, setIsFood] = useState(false);
   const { id } = useParams();
+  const { location } = useHistory();
 
   useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites'));
-    if (favorites) {
-      const test = favorites.find((favorite) => favorite === id);
+    const favorites = JSON.parse(localStorage.getItem('favoriteRecipes'));
+    if (favorites?.some((favorite) => favorite.id === id)) {
+      const test = favorites.find((favorite) => favorite.id === id);
       if (test) {
         setIsFavorite(true);
       } else {
@@ -20,6 +22,12 @@ function FavoriteRecipes() {
       }
     }
   }, [id]);
+
+  useEffect(() => {
+    const validFood = location.pathname.includes('foods');
+    setIsFood(validFood);
+  },
+  [location.pathname]);
 
   return (
     <div>
@@ -30,7 +38,7 @@ function FavoriteRecipes() {
         // src={ isFavorite ? whiteHeartIcon : blackHeartIcon }
         onClick={ () => {
           setIsFavorite(!isFavorite);
-          favoritedRecipe(id, !isFavorite);
+          favoritedRecipe(id, !isFavorite, isFood);
           getFavoriteRecipes();
         } }
       >
