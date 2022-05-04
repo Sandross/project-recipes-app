@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import getSaveEmail from '../storage/getStorage';
+import { getSaveEmail } from '../storage/getStorage';
 
 function Profile() {
   const history = useHistory();

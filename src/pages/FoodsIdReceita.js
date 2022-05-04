@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { idRecipes } from '../helpers/FoodsAPI';
+import ShareRecipes from '../components/ShareRecipes';
+import FavoriteRecipes from '../components/FavoriteRecipes';
 import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
 import '../App.css';
 
@@ -8,7 +10,7 @@ function FoodsIdReceita() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
   const history = useHistory();
-  console.log(useParams());
+
   useEffect(() => {
     idRecipes(id).then(({ meals }) => setRecipes(meals));
   }, [id]);
@@ -44,13 +46,12 @@ function FoodsIdReceita() {
             src={ item.strMealThumb }
             alt={ item.strMeal }
           />
+
           <h3 data-testid="recipe-title">{item.strMeal}</h3>
-          <button data-testid="share-btn" type="button">
-            Share
-          </button>
-          <button data-testid="favorite-btn" type="button">
-            Favorite
-          </button>
+
+          <FavoriteRecipes />
+          <ShareRecipes />
+
           <p data-testid="recipe-category">{item.strCategory}</p>
           <ul>
             {handleIngredient().map((list) => list)}
@@ -66,7 +67,6 @@ function FoodsIdReceita() {
             title={ item.strMeal }
           />
           <RecomendationDrinksCard index={ index } />
-
         </div>
       ))}
       <button

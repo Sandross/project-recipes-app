@@ -1,3 +1,3 @@
-const getSaveEmail = () => JSON.parse(localStorage.getItem('user'));
+export const getSaveEmail = () => JSON.parse(localStorage.getItem('user'));
 
-export default getSaveEmail;
+export const getFavoriteRecipes = () => JSON.parse(localStorage.getItem('favorites'));
