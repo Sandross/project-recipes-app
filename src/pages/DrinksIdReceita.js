@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { idRecipes } from '../helpers/DrinksAPI';
+import ShareRecipes from '../components/ShareRecipes';
+import FavoriteRecipes from '../components/FavoriteRecipes';
 import RecomendationFoodsCard from '../components/RecomendationFoodsCard';
 import '../App.css';
 
@@ -39,13 +41,12 @@ function DrinksIdReceita() {
             src={ item.strDrinkThumb }
             alt={ item.strDrink }
           />
+
           <h3 data-testid="recipe-title">{item.strDrink}</h3>
-          <button data-testid="share-btn" type="button">
-            Share
-          </button>
-          <button data-testid="favorite-btn" type="button">
-            Favorite
-          </button>
+
+          <FavoriteRecipes />
+          <ShareRecipes />
+
           <p data-testid="recipe-category">{item.strAlcoholic}</p>
           <ul>
             {handleIngredient().map((list) => list)}
