@@ -71,3 +71,8 @@
   bottom: 0;
   position: fixed;
 }
+
+.container-check-ingredients {
+  display: flex;
+  flex-direction: column;
+}

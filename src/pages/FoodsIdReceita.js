@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { idRecipes } from '../helpers/FoodsAPI';
+import { idRecipesFoods } from '../helpers/FoodsAPI';
 import ShareRecipes from '../components/ShareRecipes';
 import FavoriteRecipes from '../components/FavoriteRecipes';
 import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
@@ -12,7 +12,7 @@ function FoodsIdReceita() {
   const history = useHistory();
 
   useEffect(() => {
-    idRecipes(id).then(({ meals }) => setRecipes(meals));
+    idRecipesFoods(id).then(({ meals }) => setRecipes(meals));
   }, [id]);
 
   const handleIngredient = () => {

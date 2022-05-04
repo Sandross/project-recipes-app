@@ -1,4 +1,6 @@
 import { getFavoriteRecipes } from './getStorage';
+import { idRecipesFoods } from '../helpers/FoodsAPI';
+import { idRecipesDrinks } from '../helpers/DrinksAPI';
 
 export const setSaveEmail = (email) => {
   localStorage.setItem('user', JSON.stringify({ email }));
@@ -12,14 +14,64 @@ export const cocktailsToken = () => {
   localStorage.setItem('cocktailsToken', JSON.stringify(1));
 };
 
-export const favoritedRecipe = (id, isFavorite) => {
+export const setStorageFavoritesFoods = (id) => {
+  const listRecipeForIdFoods = idRecipesFoods(id);
+  return listRecipeForIdFoods.then((dataFood) => {
+    const { meals } = dataFood;
+    const { idMeal, strArea, strCategory, strMeal, strMealThumb } = meals[0];
+    const favorite = {
+      id: idMeal,
+      type: 'food',
+      nationality: strArea,
+      category: strCategory,
+      alcoholicOrNot: '',
+      name: strMeal,
+      image: strMealThumb,
+    };
+    return favorite;
+  });
+};
+
+export const setStorageFavoritesDrinks = (id) => {
+  const listRecipeForIdDrinks = idRecipesDrinks(id);
+  return listRecipeForIdDrinks.then((dataDrink) => {
+    const { drinks } = dataDrink;
+    const { idDrink, strCategory, strAlcoholic, strDrink, strDrinkThumb } = drinks[0];
+    const favorite = {
+      id: idDrink,
+      type: 'drink',
+      nationality: '',
+      category: strCategory,
+      alcoholicOrNot: strAlcoholic,
+      name: strDrink,
+      image: strDrinkThumb,
+    };
+    return favorite;
+  });
+};
+
+export const favoritedRecipe = async (id, isFavorite, isFood) => {
+  const storageFavorite = isFood
+    ? await setStorageFavoritesFoods(id) : await setStorageFavoritesDrinks(id);
+
   const favorites = getFavoriteRecipes();
   if (favorites) {
     const newFavorites = isFavorite
-      ? [...favorites, id]
-      : favorites.filter((favorite) => favorite !== id);
-    localStorage.setItem('favorites', JSON.stringify(newFavorites));
+      ? [...favorites, storageFavorite]
+      : favorites.filter((favorite) => favorite.id !== id);
+    localStorage.setItem('favoriteRecipes', JSON.stringify(newFavorites));
   } else {
-    localStorage.setItem('favorites', JSON.stringify([id]));
+    localStorage.setItem('favoriteRecipes', JSON.stringify(
+      [storageFavorite],
+    ));
   }
+};
+
+export const recipesInProgress = (id, ingredientsUsed, type) => {
+  const object = {
+    [type]: {
+      [id]: ingredientsUsed,
+    },
+  };
+  localStorage.setItem('inProgressRecipes', JSON.stringify(object));
 };
