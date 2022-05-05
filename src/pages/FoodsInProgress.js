@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import ShareRecipes from '../components/ShareRecipes';
 import FavoriteRecipes from '../components/FavoriteRecipes';
@@ -12,7 +12,8 @@ function FoodsInProgress() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [ingredientsUsed, setIngredientsUsed] = useState([]);
-  // const history = useHistory();
+  const [isDisabled, setIsDisabled] = useState(true);
+  const history = useHistory();
 
   useEffect(() => {
     idRecipesFoods(id).then(({ meals }) => setRecipes(meals));
@@ -31,38 +32,57 @@ function FoodsInProgress() {
         ));
       }
     }
-    recipesInProgress(id, ingredientsUsed, 'meals');
   };
 
   useEffect(() => {
+    if (ingredientsUsed.length !== 0) {
+      recipesInProgress(id, ingredientsUsed, 'meals');
+    }
+  }, [ingredientsUsed, id]);
+
+  useEffect(() => {
     const getRecipesInProgress = getInProgressRecipes();
-    if (getRecipesInProgress) {
-      setIngredientsUsed(getRecipesInProgress);
+    if (getRecipesInProgress && getRecipesInProgress.meals) {
+      const { meals } = getRecipesInProgress;
+      const recipesArray = Object.values(meals);
+      setIngredientsUsed(...recipesArray);
     }
   }, []);
+
+  useEffect(() => {
+    const ingredientsChecks = document.getElementsByClassName('check');
+    const listChecks = [...ingredientsChecks];
+    if (ingredientsChecks.length !== 0) {
+      const areCheckeds = listChecks.every((ing) => ing.checked);
+      setIsDisabled(!areCheckeds);
+    }
+  }, [ingredientsUsed]);
 
   const handleIngredient = () => {
     const TWENTY = 20;
     const element = [];
     for (let i = 1; i <= TWENTY; i += 1) {
-      if (recipes[0][`strIngredient${i}`] && recipes[0][`strMeasure${i}`]) {
+      const ingredient = recipes[0][`strIngredient${i}`];
+      const mesure = recipes[0][`strMeasure${i}`];
+      const ingredientAndMesure = `${ingredient} - ${mesure}`;
+      if (ingredient && mesure) {
         element.push(
           <label
-            htmlFor="checkRecipe"
+            htmlFor={ `checkRecipe${i - 1}` }
             key={ i }
             data-testid={ `${i - 1}-ingredient-step` }
           >
             <input
-              id="checkRecipe"
+              id={ `checkRecipe${i - 1}` }
               type="checkbox"
+              className="check"
               onChange={ handleIngredientsUsed }
-              value={
-                `${recipes[0][`strIngredient${i}`]} - ${recipes[0][`strMeasure${i}`]}`
+              checked={
+                ingredientsUsed.some((ing) => ing === ingredientAndMesure)
               }
+              value={ ingredientAndMesure }
             />
-            {
-              `${recipes[0][`strIngredient${i}`]} - ${recipes[0][`strMeasure${i}`]}`
-            }
+            { ingredientAndMesure}
           </label>,
         );
       }
@@ -103,7 +123,8 @@ function FoodsInProgress() {
         data-testid="finish-recipe-btn"
         className="finish-recipe-btn"
         type="button"
-        // onClick={ () => history.push(`/foods/${id}/in-progress`) }
+        disabled={ isDisabled }
+        onClick={ () => history.push('/done-recipes') }
       >
         Finish Recipe
       </button>
