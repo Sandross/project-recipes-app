@@ -9,7 +9,7 @@ function ShareRecipes() {
 
   const shareLink = () => {
     const copy = clipboardCopy;
-    copy(`http://localhost:3000${location.pathname}`);
+    copy(`http://localhost:3000${(location.pathname).replace('/in-progress', '')}`);
     setCreateElement(false);
   };
 

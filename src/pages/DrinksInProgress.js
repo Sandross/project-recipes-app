@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
 import ShareRecipes from '../components/ShareRecipes';
 import FavoriteRecipes from '../components/FavoriteRecipes';
 import { recipesInProgress } from '../storage/setStorage';
+import { getInProgressRecipes } from '../storage/getStorage';
+
 // import RecomendationFoodsCard from '../components/RecomendationFoodsCard';
 import '../App.css';
 
@@ -11,7 +13,9 @@ function DrinksInProgress() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [ingredientsUsed, setIngredientsUsed] = useState([]);
-  // const history = useHistory();
+  const [isDisabled, setIsDisabled] = useState(true);
+
+  const history = useHistory();
 
   useEffect(() => {
     idRecipesDrinks(id).then(({ drinks }) => setRecipes(drinks));
@@ -19,44 +23,68 @@ function DrinksInProgress() {
 
   const handleIngredientsUsed = (e) => {
     const getValue = e.target.value;
-
-    if (!ingredientsUsed.some(
-      (ingredient) => ingredient === getValue,
-    )) {
-      setIngredientsUsed([...ingredientsUsed, getValue]);
-    } else {
-      setIngredientsUsed(ingredientsUsed.filter(
-        (ingredient) => ingredient !== getValue,
-      ));
+    if (ingredientsUsed) {
+      if (!ingredientsUsed.some(
+        (ingredient) => ingredient === getValue,
+      )) {
+        setIngredientsUsed([...ingredientsUsed, getValue]);
+      } else {
+        setIngredientsUsed(ingredientsUsed.filter(
+          (ingredient) => ingredient !== getValue,
+        ));
+      }
     }
   };
 
   useEffect(() => {
-    recipesInProgress(id, ingredientsUsed, 'cocktails');
+    if (ingredientsUsed.length !== 0) {
+      recipesInProgress(id, ingredientsUsed, 'cocktails');
+    }
   }, [ingredientsUsed, id]);
+
+  useEffect(() => {
+    const getRecipesInProgress = getInProgressRecipes();
+    if (getRecipesInProgress && getRecipesInProgress.cocktails) {
+      const { cocktails } = getRecipesInProgress;
+      const recipesArray = Object.values(cocktails);
+      setIngredientsUsed(...recipesArray);
+    }
+  }, []);
+
+  useEffect(() => {
+    const ingredientsChecks = document.getElementsByClassName('check');
+    const listChecks = [...ingredientsChecks];
+    if (ingredientsChecks.length !== 0) {
+      const areCheckeds = listChecks.every((ing) => ing.checked);
+      setIsDisabled(!areCheckeds);
+    }
+  }, [ingredientsUsed]);
 
   const handleIngredient = () => {
     const FIFTEEN = 15;
     const element = [];
     for (let i = 1; i <= FIFTEEN; i += 1) {
-      if (recipes[0][`strIngredient${i}`] && recipes[0][`strMeasure${i}`]) {
+      const ingredient = recipes[0][`strIngredient${i}`];
+      const mesure = recipes[0][`strMeasure${i}`];
+      const ingredientAndMesure = `${ingredient} - ${mesure}`;
+      if (ingredient && mesure) {
         element.push(
           <label
-            htmlFor="checkRecipe"
+            htmlFor={ `checkRecipe${i - 1}` }
             key={ i }
             data-testid={ `${i - 1}-ingredient-step` }
           >
             <input
-              id="checkRecipe"
+              id={ `checkRecipe${i - 1}` }
               type="checkbox"
+              className="check"
               onChange={ handleIngredientsUsed }
-              value={
-                `${recipes[0][`strIngredient${i}`]} - ${recipes[0][`strMeasure${i}`]}`
+              checked={
+                ingredientsUsed.some((ing) => ing === ingredientAndMesure)
               }
+              value={ ingredientAndMesure }
             />
-            {
-              `${recipes[0][`strIngredient${i}`]} - ${recipes[0][`strMeasure${i}`]}`
-            }
+            { ingredientAndMesure}
           </label>,
         );
       }
@@ -92,7 +120,8 @@ function DrinksInProgress() {
         data-testid="finish-recipe-btn"
         className="finish-recipe-btn"
         type="button"
-        // onClick={ () => history.push(`/drinks/${id}/in-progress`) }
+        disabled={ isDisabled }
+        onClick={ () => history.push('/done-recipes') }
       >
         Finish Recipe
       </button>
