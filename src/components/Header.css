@@ -1,4 +1,38 @@
+header {
+  background-color: rgb(47, 193, 140);
+  box-shadow: 0 0 10px rgb(47, 193, 140);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  left: 0;
+  padding: 5px;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 .headerContainer {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
+}
+
+.header-title {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+
+[ data-testid = 'profile-top-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+[ data-testid = 'search-top-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
 }

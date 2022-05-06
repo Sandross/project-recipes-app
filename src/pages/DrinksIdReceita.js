@@ -45,7 +45,7 @@ function DrinksIdReceita() {
           <h3 data-testid="recipe-title">{item.strDrink}</h3>
 
           <FavoriteRecipes />
-          <ShareRecipes />
+          <ShareRecipes testid="share-btn" />
 
           <p data-testid="recipe-category">{item.strAlcoholic}</p>
           <ul>

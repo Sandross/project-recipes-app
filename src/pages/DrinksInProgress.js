@@ -3,10 +3,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
 import ShareRecipes from '../components/ShareRecipes';
 import FavoriteRecipes from '../components/FavoriteRecipes';
-import { recipesInProgress } from '../storage/setStorage';
+import { recipesInProgress, setDoneRecipe } from '../storage/setStorage';
 import { getInProgressRecipes } from '../storage/getStorage';
-
-// import RecomendationFoodsCard from '../components/RecomendationFoodsCard';
 import '../App.css';
 
 function DrinksInProgress() {
@@ -14,7 +12,6 @@ function DrinksInProgress() {
   const [recipes, setRecipes] = useState([]);
   const [ingredientsUsed, setIngredientsUsed] = useState([]);
   const [isDisabled, setIsDisabled] = useState(true);
-
   const history = useHistory();
 
   useEffect(() => {
@@ -92,6 +89,26 @@ function DrinksInProgress() {
     return element;
   };
 
+  const handleDoneRecipe = async () => {
+    const getRecipeAPI = await idRecipesDrinks(id);
+    const { drinks } = getRecipeAPI;
+    const { strAlcoholic, strDrink, strDrinkThumb, strTags } = drinks[0];
+
+    const recipeDone = {
+      id,
+      type: 'drink',
+      nationality: '',
+      category: '',
+      alcoholicOrNot: strAlcoholic,
+      name: strDrink,
+      image: strDrinkThumb,
+      doneDate: `${new Date().toLocaleDateString()}`,
+      tags: strTags ? (strTags).split(',') : [],
+    };
+    setDoneRecipe(recipeDone);
+    history.push('/done-recipes');
+  };
+
   return (
     <div>
       {recipes?.map((item) => (
@@ -107,7 +124,7 @@ function DrinksInProgress() {
           <h3 data-testid="recipe-title">{item.strDrink}</h3>
 
           <FavoriteRecipes />
-          <ShareRecipes />
+          <ShareRecipes testid="share-btn" />
 
           <p data-testid="recipe-category">{item.strAlcoholic}</p>
           <div>
@@ -121,7 +138,7 @@ function DrinksInProgress() {
         className="finish-recipe-btn"
         type="button"
         disabled={ isDisabled }
-        onClick={ () => history.push('/done-recipes') }
+        onClick={ handleDoneRecipe }
       >
         Finish Recipe
       </button>

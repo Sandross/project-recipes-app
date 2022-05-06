@@ -1,78 +1,316 @@
-.meals {
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(47, 193, 140);
+}
+
+/* FoodsIdReceita - DrinksIdReceita */
+.container-id-recipes {
   align-items: center;
-  background: #0fa36b;
-  color: #464646;
+  background-color: gray;
   display: flex;
   flex-direction: column;
-  font-family: sans-serif;
-  height: 100vh;
-  justify-content: center;
+  padding: 10px;
+}
+
+.id-recipe-card {
+  align-items: center;
+  background: whitesmoke;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(47, 193, 140);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 5px;
+  margin-bottom: 40px;
+  padding: 0 12px;
   width: 100%;
 }
 
-.rocksGlass {
-  animation: shake 1s infinite ease;
-  max-height: 80vh;
+.container-id-recipes-title {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
-/*
-#iceLeft {
-  animation: clink .8s infinite ease;
-  opacity: 0.6;
-  transform-origin: 36px 66px;
+.idReceitas-img-title {
+  display: flex;
+  justify-content: space-around;
 }
 
-#iceRight {
-  animation: clink .8s .2s infinite ease;
-  opacity: 0.6;
-  transform-origin: 60px 78px;
-}
-*/
-
-.meals > .logo {
-  animation: shake 1.5s infinite ease;
-  color: aliceblue;
-  font-family: Montserrat , sans-serif;
-  font-size: 3em;
-  font-weight: 900;
+[ data-testid = 'recipe-photo' ] {
+  border-radius: 5% 15% 5% 40%;
+  margin: 10px 10px 0 0;
+  width: 140px;
 }
 
-@keyframes shake {
-
-  0% {
-    transform: rotate(5deg);
-  }
-
-  50% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(5deg);
-  }
+[ data-testid = 'recipe-title' ] {
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 600;
+  padding-top: 25px;
 }
 
-@keyframes clink {
+.container-id-recipe-share-like {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 70px;
 
-  0% {
-    transform: rotate(-10deg);
-  }
+  /* width: 100%; */
+}
 
-  50% {
-    transform: rotate(20deg);
-  }
+.container-id-recipe-share-like button {
+  height: 35px;
+  width: 60px;
+}
 
-  100% {
-    transform: rotate(-10deg);
-  }
+[ data-testid = 'recipe-category' ] {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  text-align: left;
+  width: 100%;
+}
+
+.id-recipe-card ul {
+  background-color: rgb(211, 211, 210);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(156, 155, 155);
+  padding: 0 0 0 30px;
+  width: 80%;
+}
+
+.id-recipe-card li {
+  font-size: 16px;
+  font-weight: 600;
+  list-style-type: circle;
 }
 
 .start-recipe-btn {
+  align-items: center;
+  background-color: rgb(47, 193, 140);
   bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
   position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+
+[ data-testid = 'start-recipe-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: fantasy;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 .container-check-ingredients {
   display: flex;
   flex-direction: column;
 }
+
+/* FoodsIdReceita - DrinksIdReceita */
+
+/* ? */
+
+/* RecomendationCard */
+.container-recomendation {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 30vh;
+  margin: 10px 0;
+  overflow-x: scroll;
+  width: 90%;
+}
+
+.title-recomendation {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.Alcoholic-recomendation {
+  font-size: 14px;
+}
+
+.container-recomendation [ data-testid = 'recipe-photo' ] {
+  border-radius: 5%;
+  margin: 10px 0;
+  width: 80px;
+}
+
+.card-recomendation {
+  align-items: center;
+  background-color: rgb(211, 211, 210);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 70%;
+  justify-content: space-around;
+  margin: 5px;
+  width: 47%;
+}
+
+/* RecomendationCard */
+
+/* ! */
+
+/* SearchBarHeader */
+.searchBar-headerContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-searchBar {
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  position: relative;
+}
+
+.input-searchBar input {
+  cursor: pointer;
+  margin: 10px;
+}
+
+/* SearchBarHeader */
+
+/* ! */
+
+/* FoodsRecipesCard */
+.container-card-recipes-geral {
+  padding-top: 100px;
+}
+
+.container-recipes-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.container-recipes-card-button button {
+  background: rgb(196, 190, 190);
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(194, 189, 189);
+  color: rgb(77, 75, 75);
+  cursor: pointer;
+  font-family: Georgia , Times , serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 26px;
+  margin: 5px 15px;
+  width: 90px;
+}
+
+.container-recipes-card-button {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.recipes-card-item {
+  align-items: center;
+  border: rgb(47, 193, 140) solid 1px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(47, 193, 140);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 8px;
+  padding: 5px;
+  width: 40%;
+}
+
+.name-recipes-card {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.foods-img {
+  border-radius: 5%;
+  height: 120px;
+  width: 120px;
+}
+
+/* FoodsRecipesCard */
+
+
+/* Footer */
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.footer-container {
+  background-color: rgb(47, 193, 140);
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  width: 100%;
+}
+
+[ data-testid = 'drinks-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+[ data-testid = 'explore-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+[ data-testid = 'food-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+
+/* Share */
+.share-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.container-share {
+  height: 40px;
+}
+
+.container-share p {
+  font-size: 10px;
+  text-align: center;
+}
+
+/* Share */
+
+/* ! */
+
+/* Favorite Recipes */
+[ data-testid = 'favorite-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Favorite Recipes */

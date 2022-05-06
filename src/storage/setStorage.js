@@ -1,4 +1,4 @@
-import { getFavoriteRecipes } from './getStorage';
+import { getFavoriteRecipes, getStorageDoneRecipes } from './getStorage';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
 
@@ -74,4 +74,16 @@ export const recipesInProgress = (id, ingredientsUsed, type) => {
     },
   };
   localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+};
+
+export const setDoneRecipe = (recipe) => {
+  const doneRecipes = getStorageDoneRecipes();
+  if (doneRecipes) {
+    if (!doneRecipes.some((recipeDone) => recipeDone.id === recipe.id)) {
+      const newDoneRecipes = [...doneRecipes, recipe];
+      localStorage.setItem('doneRecipes', JSON.stringify(newDoneRecipes));
+    }
+  } else {
+    localStorage.setItem('doneRecipes', JSON.stringify([recipe]));
+  }
 };

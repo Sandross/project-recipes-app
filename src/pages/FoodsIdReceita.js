@@ -36,21 +36,24 @@ function FoodsIdReceita() {
   }
 
   return (
-    <div>
+    <div className="container-id-recipes">
       {recipes?.map((item, index) => (
-        <div key={ item.idMeal }>
-          <img
-            width="160"
-            height="120"
-            data-testid="recipe-photo"
-            src={ item.strMealThumb }
-            alt={ item.strMeal }
-          />
+        <div key={ index } className="id-recipe-card">
+          <div className="container-id-recipes-title" key={ item.idMeal }>
+            <div className="idReceitas-img-title">
+              <img
+                data-testid="recipe-photo"
+                src={ item.strMealThumb }
+                alt={ item.strMeal }
+              />
 
-          <h3 data-testid="recipe-title">{item.strMeal}</h3>
-
-          <FavoriteRecipes />
-          <ShareRecipes />
+              <h3 data-testid="recipe-title">{item.strMeal}</h3>
+            </div>
+            <div className="container-id-recipe-share-like">
+              <FavoriteRecipes />
+              <ShareRecipes testid="share-btn" />
+            </div>
+          </div>
 
           <p data-testid="recipe-category">{item.strCategory}</p>
           <ul>
@@ -69,14 +72,15 @@ function FoodsIdReceita() {
           <RecomendationDrinksCard index={ index } />
         </div>
       ))}
-      <button
-        data-testid="start-recipe-btn"
-        className="start-recipe-btn"
-        type="button"
-        onClick={ () => history.push(`/foods/${id}/in-progress`) }
-      >
-        Start Recipe
-      </button>
+      <div className="start-recipe-btn">
+        <button
+          data-testid="start-recipe-btn"
+          type="button"
+          onClick={ () => history.push(`/foods/${id}/in-progress`) }
+        >
+          Start Recipe
+        </button>
+      </div>
     </div>
   );
 }

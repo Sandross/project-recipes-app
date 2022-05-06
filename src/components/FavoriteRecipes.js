@@ -35,7 +35,6 @@ function FavoriteRecipes() {
         data-testid="favorite-btn"
         type="button"
         src={ isFavorite ? 'blackHeartIcon' : 'whiteHeartIcon' }
-        // src={ isFavorite ? whiteHeartIcon : blackHeartIcon }
         onClick={ () => {
           setIsFavorite(!isFavorite);
           favoritedRecipe(id, !isFavorite, isFood);
