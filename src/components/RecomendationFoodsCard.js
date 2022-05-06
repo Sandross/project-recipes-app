@@ -34,7 +34,7 @@ function RecomendationDrinksCard() {
               {food.strMeal}
 
             </h3>
-            <h4>{food.strCategory}</h4>
+            <h5>{food.strCategory}</h5>
           </div>
         )))}
     </div>

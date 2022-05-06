@@ -36,8 +36,8 @@ function FoodsRecipesCard() {
   const TWELVE = 12;
   const FIVE = 5;
   return (
-    <div>
-      <div>
+    <div className="container-card-recipes-geral">
+      <div className="container-recipes-card-button">
         <button
           data-testid="All-category-filter"
           type="button"
@@ -66,14 +66,15 @@ function FoodsRecipesCard() {
         ))}
       </div>
 
-      <div className="foods-recipes-card">
+      <div className="container-recipes-card">
         {foodsList.map((food, index) => (
           index < TWELVE && (
             <div
+              className="recipes-card-item"
               role="button"
-              tabIndex={ 0 }
               data-testid={ `${index}-recipe-card` }
               key={ food.strMeal }
+              tabIndex={ 0 }
               onClick={ () => {
                 redirectToFoods(food);
               } }
@@ -87,9 +88,14 @@ function FoodsRecipesCard() {
                 alt={ food.strMeal }
                 className="foods-img"
               />
-              <h3 data-testid={ `${index}-card-name` }>{food.strMeal}</h3>
-            </div>
-          )
+              <h3
+                className="name-recipes-card"
+                data-testid={ `${index}-card-name` }
+              >
+                {food.strMeal}
+
+              </h3>
+            </div>)
         ))}
       </div>
     </div>

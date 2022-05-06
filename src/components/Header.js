@@ -11,21 +11,22 @@ function Header({ title, toHaveSearch }) {
   const [isSearchEnabled, setSearchEnabled] = useState(false);
 
   return (
-    <div className="headerContainer">
-      <button
-        data-testid="profile-top-btn"
-        type="button"
-        src={ profileIcon }
-        onClick={ () => {
-          history.push('/profile');
-        } }
-      >
-        <img src={ profileIcon } alt="profileIcon" />
-      </button>
+    <header className="headerContainer">
+      <div className="header-title">
+        <button
+          data-testid="profile-top-btn"
+          type="button"
+          src={ profileIcon }
+          onClick={ () => {
+            history.push('/profile');
+          } }
+        >
+          <img src={ profileIcon } alt="profileIcon" />
+        </button>
 
-      <h2 data-testid="page-title">{title}</h2>
+        <h2 data-testid="page-title">{title}</h2>
 
-      { toHaveSearch
+        { toHaveSearch
       && (
         <button
           data-testid="search-top-btn"
@@ -38,10 +39,11 @@ function Header({ title, toHaveSearch }) {
           <img src={ searchIcon } alt="profileIcon" />
         </button>
       )}
-      { isSearchEnabled
-        && (<input type="text" data-testid="search-input" />)}
+        { isSearchEnabled
+          && (<input type="text" data-testid="search-input" />)}
+      </div>
       {toHaveSearch && <SearchBarHeader />}
-    </div>
+    </header>
   );
 }
 

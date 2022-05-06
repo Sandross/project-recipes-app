@@ -3,9 +3,8 @@ import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import ShareRecipes from '../components/ShareRecipes';
 import FavoriteRecipes from '../components/FavoriteRecipes';
-import { recipesInProgress } from '../storage/setStorage';
+import { recipesInProgress, setDoneRecipe } from '../storage/setStorage';
 import { getInProgressRecipes } from '../storage/getStorage';
-// import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
 import '../App.css';
 
 function FoodsInProgress() {
@@ -90,10 +89,25 @@ function FoodsInProgress() {
     return element;
   };
 
-  // function replaceAll(str, find, replace) {
-  //   const escapedFind = find.replace(/([.*+?^=!:${}()|[\]/\\])/g, '\\$1');
-  //   return str.replace(new RegExp(escapedFind, 'g'), replace);
-  // }
+  const handleDoneRecipe = async () => {
+    const getRecipeAPI = await idRecipesFoods(id);
+    const { meals } = getRecipeAPI;
+    const { strArea, strCategory, strMeal, strMealThumb, strTags } = meals[0];
+
+    const recipeDone = {
+      id,
+      type: 'food',
+      nationality: strArea,
+      category: strCategory,
+      alcoholicOrNot: '',
+      name: strMeal,
+      image: strMealThumb,
+      doneDate: `${new Date().toLocaleDateString()}`,
+      tags: strTags ? (strTags).split(',') : [],
+    };
+    setDoneRecipe(recipeDone);
+    history.push('/done-recipes');
+  };
 
   return (
     <div>
@@ -110,7 +124,7 @@ function FoodsInProgress() {
           <h3 data-testid="recipe-title">{item.strMeal}</h3>
 
           <FavoriteRecipes />
-          <ShareRecipes />
+          <ShareRecipes testid="share-btn" />
 
           <p data-testid="recipe-category">{item.strCategory}</p>
           <div className="container-check-ingredients">
@@ -124,7 +138,7 @@ function FoodsInProgress() {
         className="finish-recipe-btn"
         type="button"
         disabled={ isDisabled }
-        onClick={ () => history.push('/done-recipes') }
+        onClick={ handleDoneRecipe }
       >
         Finish Recipe
       </button>

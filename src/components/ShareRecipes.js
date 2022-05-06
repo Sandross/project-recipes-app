@@ -1,22 +1,29 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import clipboardCopy from 'clipboard-copy';
 import shareIcon from '../images/shareIcon.svg';
 
-function ShareRecipes() {
+function ShareRecipes({ testid, share }) {
   const { location } = useHistory();
   const [createElement, setCreateElement] = useState(true);
 
   const shareLink = () => {
     const copy = clipboardCopy;
-    copy(`http://localhost:3000${(location.pathname).replace('/in-progress', '')}`);
-    setCreateElement(false);
+    if (share) {
+      copy(`http://localhost:3000${share}`);
+      setCreateElement(false);
+    } else {
+      copy(`http://localhost:3000${(location.pathname).replace('/in-progress', '')}`);
+      setCreateElement(false);
+    }
   };
 
   return (
-    <div>
+    <div className="container-share">
       <button
-        data-testid="share-btn"
+        className="share-btn"
+        data-testid={ testid }
         type="button"
         src={ shareIcon }
         onClick={ () => shareLink() }
@@ -28,5 +35,10 @@ function ShareRecipes() {
     </div>
   );
 }
+
+ShareRecipes.propTypes = {
+  testid: PropTypes.string.isRequired,
+  share: PropTypes.string.isRequired,
+};
 
 export default ShareRecipes;

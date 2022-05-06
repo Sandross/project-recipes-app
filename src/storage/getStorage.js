@@ -7,3 +7,7 @@ export const getFavoriteRecipes = () => JSON.parse(
 export const getInProgressRecipes = () => JSON.parse(
   localStorage.getItem('inProgressRecipes'),
 );
+
+export const getStorageDoneRecipes = () => JSON.parse(
+  localStorage.getItem('doneRecipes'),
+);
