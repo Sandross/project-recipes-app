@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import ShareRecipes from '../components/ShareRecipes';
-import FavoriteRecipes from '../components/FavoriteRecipes';
+import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import { recipesInProgress, setDoneRecipe } from '../storage/setStorage';
 import { getInProgressRecipes } from '../storage/getStorage';
 import '../App.css';
@@ -123,7 +123,7 @@ function FoodsInProgress() {
 
           <h3 data-testid="recipe-title">{item.strMeal}</h3>
 
-          <FavoriteRecipes />
+          <LinkFavoriteRecipes />
           <ShareRecipes testid="share-btn" />
 
           <p data-testid="recipe-category">{item.strCategory}</p>

@@ -18,6 +18,17 @@ export const filterByCategory = async (category) => {
 
 export const idRecipesDrinks = async (id) => {
   const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  const data = await response.json();
-  return data;
+  const { drinks } = await response.json();
+  const { idDrink, strCategory, strAlcoholic, strDrink, strDrinkThumb } = drinks[0];
+  const favoriteDrink = {
+    id: idDrink,
+    type: 'drink',
+    nationality: '',
+    category: strCategory,
+    alcoholicOrNot: strAlcoholic,
+    name: strDrink,
+    image: strDrinkThumb,
+  };
+
+  return { drinks, favoriteDrink };
 };

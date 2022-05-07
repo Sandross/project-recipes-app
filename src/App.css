@@ -94,23 +94,37 @@ body {
 
 .start-recipe-btn {
   align-items: center;
-  background-color: rgb(47, 193, 140);
-  bottom: 0;
+
+  /* background-color: rgb(47, 193, 140); */
+
+  /* bottom: 0; */
   display: flex;
   justify-content: center;
-  padding: 5px 0;
-  position: fixed;
-  width: 100%;
-  z-index: 1;
+
+  /* padding: 5px 0; */
+
+  /* position: fixed; */
+
+  /* width: 100%; */
+
+  /* z-index: 1; */
 }
 
 [ data-testid = 'start-recipe-btn' ] {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-family: fantasy;
-  font-size: 20px;
-  font-weight: 900;
+
+  /* align-items: center; */
+  background-color: rgb(47, 193, 140);
+  bottom: 0;
+  margin: 10px;
+
+  /* display: flex; */
+
+  /* justify-content: center; */
+  padding: 5px 0;
+  position: fixed;
+
+  /* width: 100%; */
+  z-index: 1;
 }
 
 .container-check-ingredients {
@@ -190,7 +204,7 @@ body {
 
 /* FoodsRecipesCard */
 .container-card-recipes-geral {
-  padding-top: 100px;
+  padding-top: 120px;
 }
 
 .container-recipes-card {
@@ -242,7 +256,7 @@ body {
   margin: 5px;
 }
 
-.foods-img {
+.foods-img, .drinks-img {
   border-radius: 5%;
   height: 120px;
   width: 120px;
@@ -313,4 +327,25 @@ footer {
   cursor: pointer;
 }
 
+.container-favorite-recipes {
+  margin: 15px;
+  padding-top: 100px;
+}
+
 /* Favorite Recipes */
+
+/* Done recipes */
+.container-done-recipes {
+  margin: 15px;
+  padding-top: 200px;
+}
+
+/* Done recipes */
+
+/* profile */
+.container-profile {
+  margin: 15px;
+  padding-top: 100px;
+}
+
+/* Done recipes */

@@ -19,5 +19,16 @@ export const filterByCategory = async (category) => {
 export const idRecipesFoods = async (id) => {
   const response = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);
   const data = await response.json();
-  return data;
+  const { meals } = data;
+  const { idMeal, strCategory, strArea, strMeal, strMealThumb } = meals[0];
+  const favoriteFood = {
+    id: idMeal,
+    type: 'food',
+    nationality: strArea,
+    category: strCategory,
+    alcoholicOrNot: '',
+    name: strMeal,
+    image: strMealThumb,
+  };
+  return { meals, favoriteFood };
 };
