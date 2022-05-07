@@ -9,7 +9,7 @@ function Profile() {
   const getEmail = getSaveEmail();
 
   return (
-    <div>
+    <div className="container-profile">
       <Header title="Profile" toHaveSearch={ false } />
       { getEmail ? (<p data-testid="profile-email">{getEmail.email}</p>) : '' }
       <button

@@ -26,7 +26,7 @@ function DoneRecipes() {
   };
 
   return (
-    <div>
+    <div className="container-done-recipes">
       <Header title="Done Recipes" toHaveSearch={ false } />
 
       <button

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import ShareRecipes from '../components/ShareRecipes';
-import FavoriteRecipes from '../components/FavoriteRecipes';
+import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
 import '../App.css';
 
@@ -50,7 +50,7 @@ function FoodsIdReceita() {
               <h3 data-testid="recipe-title">{item.strMeal}</h3>
             </div>
             <div className="container-id-recipe-share-like">
-              <FavoriteRecipes />
+              <LinkFavoriteRecipes />
               <ShareRecipes testid="share-btn" />
             </div>
           </div>
@@ -72,15 +72,15 @@ function FoodsIdReceita() {
           <RecomendationDrinksCard index={ index } />
         </div>
       ))}
-      <div className="start-recipe-btn">
-        <button
-          data-testid="start-recipe-btn"
-          type="button"
-          onClick={ () => history.push(`/foods/${id}/in-progress`) }
-        >
-          Start Recipe
-        </button>
-      </div>
+      {/* <div className="start-recipe-btn"> */}
+      <button
+        data-testid="start-recipe-btn"
+        type="button"
+        onClick={ () => history.push(`/foods/${id}/in-progress`) }
+      >
+        Start Recipe
+      </button>
+      {/* </div> */}
     </div>
   );
 }

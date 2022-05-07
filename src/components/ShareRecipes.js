@@ -37,8 +37,12 @@ function ShareRecipes({ testid, share }) {
 }
 
 ShareRecipes.propTypes = {
-  testid: PropTypes.string.isRequired,
-  share: PropTypes.string.isRequired,
+  testid: PropTypes.string,
+  share: PropTypes.string,
+};
+ShareRecipes.defaultProps = {
+  testid: '',
+  share: '',
 };
 
 export default ShareRecipes;

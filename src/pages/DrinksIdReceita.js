@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
 import ShareRecipes from '../components/ShareRecipes';
-import FavoriteRecipes from '../components/FavoriteRecipes';
+import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import RecomendationFoodsCard from '../components/RecomendationFoodsCard';
 import '../App.css';
 
@@ -44,7 +44,7 @@ function DrinksIdReceita() {
 
           <h3 data-testid="recipe-title">{item.strDrink}</h3>
 
-          <FavoriteRecipes />
+          <LinkFavoriteRecipes />
           <ShareRecipes testid="share-btn" />
 
           <p data-testid="recipe-category">{item.strAlcoholic}</p>
