@@ -1,63 +1,64 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import MyContext from '../context/Context';
 import Header from '../components/Header';
-import { getFavoriteRecipes } from '../storage/getStorage';
+// import { getFavoriteRecipes } from '../storage/getStorage';
 import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import ShareRecipes from '../components/ShareRecipes';
 
 function FavoriteRecipes() {
   const [getFavorite, setFavorite] = useState([]);
-  const { callFavorite } = useContext(MyContext);
+  const { favoritesState } = useContext(MyContext);
   const history = useHistory();
 
   useEffect(() => {
-    const favorite = getFavoriteRecipes();
-    if (favorite) {
-      setFavorite(favorite);
+    if (favoritesState) {
+      setFavorite(favoritesState);
     }
-  }, [callFavorite]);
+  }, [favoritesState]);
 
   const clickFilter = (item) => {
     if (item === 'food') {
-      setFavorite(getFavorite.filter((recipe) => recipe.type === 'food'));
+      setFavorite(favoritesState.filter((recipe) => recipe.type === 'food'));
     } else if (item === 'drink') {
-      setFavorite(getFavorite.filter((recipe) => recipe.type === 'drink'));
+      setFavorite(favoritesState.filter((recipe) => recipe.type === 'drink'));
     } else if (item === 'all') {
-      setFavorite(getStorageDoneRecipes());
+      setFavorite(favoritesState);
     }
   };
 
   return (
     <div className="container-favorite-recipes">
       <Header title="Favorite Recipes" toHaveSearch={ false } />
-      <button
-        data-testid="filter-by-all-btn"
-        type="button"
-        onClick={ () => { clickFilter('all'); } }
-      >
-        All
-      </button>
+      <div className="container-filter-done-favorite">
+        <button
+          data-testid="filter-by-all-btn"
+          type="button"
+          onClick={ () => { clickFilter('all'); } }
+        >
+          All
+        </button>
 
-      <button
-        data-testid="filter-by-food-btn"
-        type="button"
-        onClick={ () => { clickFilter('food'); } }
-      >
-        Food
-      </button>
+        <button
+          data-testid="filter-by-food-btn"
+          type="button"
+          onClick={ () => { clickFilter('food'); } }
+        >
+          Food
+        </button>
 
-      <button
-        data-testid="filter-by-drink-btn"
-        type="button"
-        onClick={ () => { clickFilter('drink'); } }
-      >
-        Drinks
-      </button>
+        <button
+          data-testid="filter-by-drink-btn"
+          type="button"
+          onClick={ () => { clickFilter('drink'); } }
+        >
+          Drinks
+        </button>
+      </div>
 
-      <div>
+      <div className="container-favorite-card">
         {getFavorite.map((recipe, index) => (
-          <div key={ recipe.id }>
+          <div className="favorite-card" key={ recipe.id }>
             <div
               role="button"
               tabIndex={ 0 }
@@ -65,6 +66,7 @@ function FavoriteRecipes() {
               onKeyPress={ () => { history.push(`/${recipe.type}s/${recipe.id}`); } }
             >
               <img
+                className="favorite-card-img"
                 data-testid={ `${index}-horizontal-image` }
                 src={ recipe.image }
                 alt={ recipe.image }
@@ -72,37 +74,37 @@ function FavoriteRecipes() {
               />
 
             </div>
-            <p
-              data-testid={ `${index}-horizontal-top-text` }
-            >
-              {recipe.type === 'drink'
-                ? recipe.alcoholicOrNot : `${recipe.nationality} - ${recipe.category}`}
-
-            </p>
-            <div
-              role="button"
-              tabIndex={ 0 }
-              onClick={ () => { history.push(`/${recipe.type}s/${recipe.id}`); } }
-              onKeyPress={ () => { history.push(`/${recipe.type}s/${recipe.id}`); } }
-            >
-              <h1
-                data-testid={ `${index}-horizontal-name` }
+            <div className="favorite-card-info">
+              <p
+                data-testid={ `${index}-horizontal-top-text` }
               >
-                {recipe.name}
-              </h1>
+                {recipe.type === 'drink'
+                  ? recipe.alcoholicOrNot : `${recipe.nationality} - ${recipe.category}`}
+              </p>
+              <div
+                role="button"
+                tabIndex={ 0 }
+                onClick={ () => { history.push(`/${recipe.type}s/${recipe.id}`); } }
+                onKeyPress={ () => { history.push(`/${recipe.type}s/${recipe.id}`); } }
+              >
+                <h4
+                  data-testid={ `${index}-horizontal-name` }
+                >
+                  {recipe.name}
+                </h4>
+              </div>
             </div>
             <p data-testid={ `${index}-horizontal-done-date` }>{recipe.doneDate}</p>
-            <p>{recipe.alcoholicOrNot}</p>
-            <ShareRecipes
-              share={ `/${recipe.type}s/${recipe.id}` }
-              testid={ `${index}-horizontal-share-btn` }
-            />
-            <LinkFavoriteRecipes
-              testid={ `${index}-horizontal-favorite-btn` }
-              paramsID={ recipe.id }
-              paramsFavorite
-              paramsIsFood={ recipe.type === 'food' }
-            />
+            <div className="container-share-favorite">
+              <ShareRecipes
+                share={ `/${recipe.type}s/${recipe.id}` }
+                testid={ `${index}-horizontal-share-btn` }
+              />
+              <LinkFavoriteRecipes
+                testid={ `${index}-horizontal-favorite-btn` }
+                paramsID={ recipe.id }
+              />
+            </div>
           </div>
         ))}
       </div>

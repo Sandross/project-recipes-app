@@ -9,25 +9,27 @@ function ExploreDrinks() {
   return (
     <div>
       <Header title="Explore Drinks" toHaveSearch={ false } />
-      <button
-        data-testid="explore-by-ingredient"
-        type="button"
-        onClick={ () => {
-          history.push('/explore/drinks/ingredients');
-        } }
-      >
-        By Ingredient
+      <div className="container-explore-foods-drinks">
+        <button
+          data-testid="explore-by-ingredient"
+          type="button"
+          onClick={ () => {
+            history.push('/explore/drinks/ingredients');
+          } }
+        >
+          By Ingredient
 
-      </button>
+        </button>
 
-      <button
-        data-testid="explore-surprise"
-        type="button"
-      >
+        <button
+          data-testid="explore-surprise"
+          type="button"
+        >
 
-        Surprise me!
+          Surprise me!
 
-      </button>
+        </button>
+      </div>
       <Footer />
     </div>
   );

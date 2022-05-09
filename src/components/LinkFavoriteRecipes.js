@@ -7,15 +7,15 @@ import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { setStorageFavorite } from '../storage/setStorage';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
-import { getFavoriteRecipes } from '../storage/getStorage';
+// import { getFavoriteRecipes } from '../storage/getStorage';
 
-function LinkFavoriteRecipes({ testid }) {
+function LinkFavoriteRecipes({ testid, paramsID }) {
   const [testFoodAPI, setTestFoodAPI] = useState([]);
   const [testDrinkAPI, setTestDrinkAPI] = useState([]);
   const { setFavoritesState, favoritesState, isFavorite, setIsFavorite,
   } = useContext(MyContext);
   const { id } = useParams();
-  const validID = id;
+  const validID = id || paramsID;
   const { location } = useHistory();
 
   useEffect(() => {
@@ -27,16 +27,15 @@ function LinkFavoriteRecipes({ testid }) {
       idRecipesDrinks(validID)
         .then(({ favoriteDrink }) => setTestDrinkAPI(favoriteDrink));
     }
-  }, []);
+  }, [location, validID]);
 
   useEffect(() => {
-    const favorites = getFavoriteRecipes();
+    const favorites = favoritesState;
     const favorite = favorites?.some(
       (recipe) => recipe.id === validID,
     );
-    console.log(favorite);
     setIsFavorite(favorite);
-  }, []);
+  }, [favoritesState]);
 
   const favoritedRecipe = () => {
     setIsFavorite(!isFavorite);
@@ -76,9 +75,11 @@ function LinkFavoriteRecipes({ testid }) {
 
 LinkFavoriteRecipes.propTypes = {
   testid: PropTypes.string,
+  paramsID: PropTypes.number,
 };
 LinkFavoriteRecipes.defaultProps = {
   testid: '',
+  paramsID: '',
 };
 
 export default LinkFavoriteRecipes;

@@ -31,21 +31,21 @@ function DrinksIdReceita() {
   };
 
   return (
-    <div>
+    <div className="container-id-recipes">
       {recipes?.map((item, index) => (
-        <div key={ item.idDrink }>
-          <img
-            width="160"
-            height="120"
-            data-testid="recipe-photo"
-            src={ item.strDrinkThumb }
-            alt={ item.strDrink }
-          />
-
-          <h3 data-testid="recipe-title">{item.strDrink}</h3>
-
-          <LinkFavoriteRecipes />
-          <ShareRecipes testid="share-btn" />
+        <div key={ item.idDrink } className="id-recipe-card">
+          <div className="container-id-recipes-title" key={ item.idDrink }>
+            <img
+              data-testid="recipe-photo"
+              src={ item.strDrinkThumb }
+              alt={ item.strDrink }
+            />
+            <h3 data-testid="recipe-title">{item.strDrink}</h3>
+          </div>
+          <div className="container-id-recipe-share-like">
+            <LinkFavoriteRecipes />
+            <ShareRecipes testid="share-btn" />
+          </div>
 
           <p data-testid="recipe-category">{item.strAlcoholic}</p>
           <ul>
