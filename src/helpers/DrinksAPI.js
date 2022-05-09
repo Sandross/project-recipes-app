@@ -16,6 +16,12 @@ export const filterByCategory = async (category) => {
   return data;
 };
 
+export const filterDrinksByIngredient = async () => {
+  const response = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list');
+  const data = await response.json();
+  return data;
+};
+
 export const idRecipesDrinks = async (id) => {
   const response = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
   const { drinks } = await response.json();

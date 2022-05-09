@@ -40,15 +40,12 @@ function FoodsIdReceita() {
       {recipes?.map((item, index) => (
         <div key={ index } className="id-recipe-card">
           <div className="container-id-recipes-title" key={ item.idMeal }>
-            <div className="idReceitas-img-title">
-              <img
-                data-testid="recipe-photo"
-                src={ item.strMealThumb }
-                alt={ item.strMeal }
-              />
-
-              <h3 data-testid="recipe-title">{item.strMeal}</h3>
-            </div>
+            <img
+              data-testid="recipe-photo"
+              src={ item.strMealThumb }
+              alt={ item.strMeal }
+            />
+            <h3 data-testid="recipe-title">{item.strMeal}</h3>
             <div className="container-id-recipe-share-like">
               <LinkFavoriteRecipes />
               <ShareRecipes testid="share-btn" />

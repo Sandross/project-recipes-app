@@ -4,8 +4,9 @@ import MyContext from './Context';
 import { getFavoriteRecipes } from '../storage/getStorage';
 
 function Provider({ children }) {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState();
   const [favoritesState, setFavoritesState] = useState([]);
+  const [stateID, setStateID] = useState('');
 
   useEffect(() => {
     const favorites = getFavoriteRecipes();
@@ -21,6 +22,8 @@ function Provider({ children }) {
     setIsFavorite,
     favoritesState,
     setFavoritesState,
+    stateID,
+    setStateID,
   };
 
   return (

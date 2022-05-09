@@ -9,35 +9,37 @@ function ExploreFood() {
   return (
     <div>
       <Header title="Explore Foods" toHaveSearch={ false } />
-      <button
-        data-testid="explore-by-ingredient"
-        type="button"
-        onClick={ () => {
-          history.push('/explore/foods/ingredients');
-        } }
-      >
-        By Ingredient
+      <div className="container-explore-foods-drinks">
+        <button
+          data-testid="explore-by-ingredient"
+          type="button"
+          onClick={ () => {
+            history.push('/explore/foods/ingredients');
+          } }
+        >
+          By Ingredient
 
-      </button>
+        </button>
 
-      <button
-        data-testid="explore-by-nationality"
-        type="button"
-        onClick={ () => {
-          history.push('/explore/foods/nationalities');
-        } }
-      >
-        By Nationality
+        <button
+          data-testid="explore-by-nationality"
+          type="button"
+          onClick={ () => {
+            history.push('/explore/foods/nationalities');
+          } }
+        >
+          By Nationality
 
-      </button>
+        </button>
 
-      <button
-        data-testid="explore-surprise"
-        type="button"
-      >
-        Surprise me!
+        <button
+          data-testid="explore-surprise"
+          type="button"
+        >
+          Surprise me!
 
-      </button>
+        </button>
+      </div>
       <Footer />
     </div>
   );
