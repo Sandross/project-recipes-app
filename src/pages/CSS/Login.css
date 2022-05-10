@@ -1,0 +1,83 @@
+.login-container {
+  align-items: center;
+  background: rgb(95, 194, 140);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.container-img-login {
+  background-color: red;
+}
+
+.img-login {
+  width: 300px;
+}
+
+.text-login {
+  color: #404040;
+  font-weight: 900;
+  text-align: center;
+}
+
+.input-login {
+  background-color: #404040;
+  background-image: none;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: white;
+  margin: 10px;
+  padding: 10px;
+}
+
+.login-form {
+  align-items: center;
+  background-color: #ddd;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px , rgba(0, 0, 0, 0.23) 0 3px 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  width: 300px;
+}
+
+.form-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-input-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.button-login {
+  background-color: rgb(49, 108, 82);
+  border-radius: 10px;
+  color: whitesmoke;
+  font-weight: 900;
+  margin: 0 10px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.1s;
+  width: 140px;
+}
+
+.button-login:disabled {
+  background-color: #ddd;
+  border: rgb(95, 194, 140) solid 2px;
+  color: #404040;
+}
+
+
+.button-login:hover {
+  background-color: rgb(95, 194, 140);
+  color: whitesmoke;
+}
+

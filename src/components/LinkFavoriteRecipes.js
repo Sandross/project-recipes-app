@@ -35,7 +35,7 @@ function LinkFavoriteRecipes({ testid, paramsID }) {
     if (validFood) {
       idRecipesFoods(validID)
         .then(({ favoriteFood }) => setTestFoodAPI(favoriteFood));
-    } else {
+    } else if (location.pathname.includes('drinks')) {
       idRecipesDrinks(validID)
         .then(({ favoriteDrink }) => setTestDrinkAPI(favoriteDrink));
     }

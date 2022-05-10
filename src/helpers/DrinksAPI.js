@@ -35,6 +35,5 @@ export const idRecipesDrinks = async (id) => {
     name: strDrink,
     image: strDrinkThumb,
   };
-
   return { drinks, favoriteDrink };
 };

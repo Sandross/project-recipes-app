@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MyContext from '../context/Context';
+import './CSS/SearchBar.css';
 
 function SearchBarFoods({ searchValue }) {
   const {

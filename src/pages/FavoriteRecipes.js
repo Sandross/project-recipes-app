@@ -63,7 +63,7 @@ function FavoriteRecipes() {
         </div>
 
         <div className="container-favorite-card">
-          {getFavorite.map((recipe, index) => (
+          {getFavorite?.map((recipe, index) => (
             <div className="favorite-card" key={ recipe.id }>
               <div
                 role="button"

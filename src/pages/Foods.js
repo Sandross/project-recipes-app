@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FoodsRecipesCard from '../components/FoodsRecipesCard';
+import './CSS/Foods&Drinks.css';
 
 function Foods() {
   const history = useHistory();
@@ -12,10 +13,12 @@ function Foods() {
   };
 
   return (
-    <div>
-      <Header title="Foods" toHaveSearch />
-      <FoodsRecipesCard getIngredients={ getIngredients } />
-      <Footer />
+    <div className="container-foods-drinks">
+      <div className="container-foods-drinks-header-card-footer">
+        <Header title="Foods" toHaveSearch />
+        <FoodsRecipesCard getIngredients={ getIngredients } />
+        <Footer />
+      </div>
     </div>
   );
 }

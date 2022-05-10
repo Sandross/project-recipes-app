@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Engagement&family=Permanent+Marker&family=Shizuru&display=swap') ;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -5,7 +7,7 @@
 }
 
 body {
-  background-color: rgb(47, 193, 140);
+  background-color: rgb(95, 194, 140);
 }
 
 /* ? FoodsIdReceita - DrinksIdReceita */
@@ -21,7 +23,7 @@ body {
   align-items: center;
   background: whitesmoke;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgb(47, 193, 140);
+  box-shadow: 0 0 10px rgb(95, 194, 140);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -95,7 +97,7 @@ body {
 .start-recipe-btn {
   align-items: center;
 
-  /* background-color: rgb(47, 193, 140); */
+  /* background-color:  rgb(95, 194, 140); */
 
   /* bottom: 0; */
   display: flex;
@@ -113,7 +115,7 @@ body {
 [ data-testid = 'start-recipe-btn' ] {
 
   /* align-items: center; */
-  background-color: rgb(47, 193, 140);
+  background-color: rgb(95, 194, 140);
   bottom: 0;
   margin: 10px;
 
@@ -175,26 +177,6 @@ body {
 }
 
 /* ! RecomendationCard */
-
-/* ? SearchBarHeader */
-.searchBar-headerContainer {
-  display: flex;
-  justify-content: space-around;
-}
-
-.input-searchBar {
-  cursor: pointer;
-  display: block;
-  font-size: 15px;
-  position: relative;
-}
-
-.input-searchBar input {
-  cursor: pointer;
-  margin: 10px;
-}
-
-/* ? SearchBarHeader */
 
 /* ! FoodsRecipesCard */
 .container-card-recipes-geral {

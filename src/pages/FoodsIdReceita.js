@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
+import { getStorageDoneRecipes } from '../storage/getStorage';
 import ShareRecipes from '../components/ShareRecipes';
 import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import RecomendationDrinksCard from '../components/RecomendationDrinksCard';
@@ -9,10 +10,22 @@ import '../App.css';
 function FoodsIdReceita() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
+  const [isDone, setIsDone] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     idRecipesFoods(id).then(({ meals }) => setRecipes(meals));
+  }, [id]);
+
+  useEffect(() => {
+    const getDone = getStorageDoneRecipes();
+    if (getDone) {
+      const done = getDone.some((recipe) => recipe.id === id);
+      console.log(done);
+      setIsDone(done);
+    } else {
+      setIsDone(false);
+    }
   }, [id]);
 
   const handleIngredient = () => {
@@ -69,13 +82,15 @@ function FoodsIdReceita() {
           <RecomendationDrinksCard index={ index } />
         </div>
       ))}
-      <button
-        data-testid="start-recipe-btn"
-        type="button"
-        onClick={ () => history.push(`/foods/${id}/in-progress`) }
-      >
-        Start Recipe
-      </button>
+      {!isDone && (
+        <button
+          data-testid="start-recipe-btn"
+          type="button"
+          onClick={ () => history.push(`/foods/${id}/in-progress`) }
+        >
+          Start Recipe
+        </button>
+      )}
     </div>
   );
 }

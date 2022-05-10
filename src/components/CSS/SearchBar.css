@@ -1,0 +1,89 @@
+.searchBar-headerContainer {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 3px;
+  width: 95%;
+}
+
+.input-searchBar {
+  align-items: center;
+
+  /* position: relative; */
+
+  /* background-color: brown; */
+
+  /* cursor: pointer; */
+  display: flex;
+  font-size: 15px;
+
+  /* justify-content: space-evenly; */
+  width: 100%;
+
+}
+
+.input-searchBar input {
+  cursor: pointer;
+  margin: 6px;
+}
+
+.input-searchBar label {
+  align-items: center;
+  display: flex;
+  margin: 0;
+}
+
+[ data-testid = 'first-letter-search-radio' ] {
+  border: rgb(49, 108, 82) solid 10px;
+  cursor: pointer;
+  margin: 0;
+}
+
+[ data-testid = 'exec-search-btn' ] {
+  background: none;
+  background-color: rgb(49, 108, 82);
+  border: #ddd solid 2px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgb(49, 108, 82);
+  color: #ddd;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 5px 0;
+  padding: 0 5px;
+  background-color: #ddd;
+  color: rgb(49, 108, 82);
+}
+
+[ data-testid = 'exec-search-btn' ]:hover {
+  background-color: rgb(49, 108, 82);
+  color: #ddd;
+}
+
+[ type = 'radio' ]:after {
+  background-color: #d1d3d1;
+  border: 2px solid white;
+  border-radius: 15px;
+  content: '';
+  display: inline-block;
+  height: 15px;
+  left: -1px;
+  position: relative;
+  top: -2px;
+  visibility: visible;
+  width: 15px;
+}
+
+[ type = 'radio' ]:checked:after {
+  background-color: #ffa500;
+  border: 2px solid white;
+  border-radius: 15px;
+  content: '';
+  display: inline-block;
+  height: 15px;
+  left: -1px;
+  position: relative;
+  top: -2px;
+  visibility: visible;
+  width: 15px;
+}

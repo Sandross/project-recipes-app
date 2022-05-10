@@ -11,7 +11,7 @@ function Drinks() {
     return (ingredients || null);
   };
   return (
-    <div>
+    <div className="container-foods-drinks">
       <Header title="Drinks" toHaveSearch />
       <DrinksRecipesCard getIngredients={ getIngredients } />
       <Footer />
