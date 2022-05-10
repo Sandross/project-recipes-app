@@ -7,6 +7,8 @@ function Provider({ children }) {
   const [isFavorite, setIsFavorite] = useState();
   const [favoritesState, setFavoritesState] = useState([]);
   const [stateID, setStateID] = useState('');
+  const [radioSelected, setRadioSelected] = useState([]);
+  const [ingredientValue, setIngredientValue] = useState('');
 
   useEffect(() => {
     const favorites = getFavoriteRecipes();
@@ -15,8 +17,6 @@ function Provider({ children }) {
     }
   }, []);
 
-  // console.log('provider', favoritesState);
-
   const value = {
     isFavorite,
     setIsFavorite,
@@ -24,6 +24,10 @@ function Provider({ children }) {
     setFavoritesState,
     stateID,
     setStateID,
+    radioSelected,
+    setRadioSelected,
+    ingredientValue,
+    setIngredientValue,
   };
 
   return (

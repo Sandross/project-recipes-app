@@ -1,18 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import MyContext from '../context/Context';
 import {
   listDrinksRecipes, listCategoryRecipes, filterByCategory,
 } from '../helpers/DrinksAPI';
 
-function DrinksRecipesCard() {
+function DrinksRecipesCard({ getIngredients }) {
   const [drinksList, setDrinksList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [activeCategory, setActiveCategory] = useState('');
+  const { ingredientValue } = useContext(MyContext);
   const history = useHistory();
 
   useEffect(() => {
-    listDrinksRecipes().then((data) => setDrinksList(data.drinks));
+    if (getIngredients()) {
+      fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${getIngredients()}`).then((response) => response.json())
+        .then((data) => {
+          setDrinksList(data.drinks);
+        });
+    } else {
+      listDrinksRecipes().then((data) => setDrinksList(data.drinks));
+    }
   }, []);
+
+  useEffect(() => {
+    if (ingredientValue) {
+      setDrinksList(ingredientValue);
+    }
+  }, [ingredientValue]);
 
   useEffect(() => {
     listCategoryRecipes().then((data) => setCategoryList(data.drinks));
@@ -95,5 +111,12 @@ function DrinksRecipesCard() {
     </div>
   );
 }
+
+DrinksRecipesCard.propTypes = {
+  getIngredients: PropTypes.func,
+};
+DrinksRecipesCard.defaultProps = {
+  getIngredients: '',
+};
 
 export default DrinksRecipesCard;

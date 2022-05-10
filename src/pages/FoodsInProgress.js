@@ -14,6 +14,8 @@ function FoodsInProgress() {
   const [isDisabled, setIsDisabled] = useState(true);
   const history = useHistory();
 
+  console.log(ingredientsUsed);
+
   useEffect(() => {
     idRecipesFoods(id).then(({ meals }) => setRecipes(meals));
   }, [id]);
@@ -43,7 +45,9 @@ function FoodsInProgress() {
     const getRecipesInProgress = getInProgressRecipes();
     if (getRecipesInProgress && getRecipesInProgress.meals) {
       const { meals } = getRecipesInProgress;
-      const recipesArray = Object.values(meals);
+      const recipesArray = meals.map((ids) => ids);
+
+      console.log(recipesArray);
       setIngredientsUsed(...recipesArray);
     }
   }, []);

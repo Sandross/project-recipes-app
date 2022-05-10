@@ -1,18 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import MyContext from '../context/Context';
 import {
   listFoodsRecipes, listCategoryRecipes, filterByCategory,
 } from '../helpers/FoodsAPI';
 
-function FoodsRecipesCard() {
+function FoodsRecipesCard({ getIngredients }) {
   const [foodsList, setFoodsList] = useState([]);
   const [categoryList, setCategoryList] = useState([]);
   const [activeCategory, setActiveCategory] = useState('');
+  const { ingredientValue } = useContext(MyContext);
   const history = useHistory();
 
   useEffect(() => {
-    listFoodsRecipes().then((data) => setFoodsList(data.meals));
-  }, []);
+    if (getIngredients()) {
+      fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${getIngredients()}`).then((response) => response.json())
+        .then((data) => {
+          setFoodsList(data.meals);
+        });
+    } else {
+      listFoodsRecipes().then((data) => {
+        setFoodsList(data.meals);
+      });
+    }
+  }, [getIngredients]);
+
+  useEffect(() => {
+    if (ingredientValue) {
+      setFoodsList(ingredientValue);
+    }
+  }, [ingredientValue]);
 
   useEffect(() => {
     listCategoryRecipes().then((data) => setCategoryList(data.meals));
@@ -101,5 +119,12 @@ function FoodsRecipesCard() {
     </div>
   );
 }
+
+FoodsRecipesCard.propTypes = {
+  getIngredients: PropTypes.func,
+};
+FoodsRecipesCard.defaultProps = {
+  getIngredients: '',
+};
 
 export default FoodsRecipesCard;

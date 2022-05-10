@@ -1,4 +1,4 @@
-import { getStorageDoneRecipes } from './getStorage';
+import { getStorageDoneRecipes, getInProgressRecipes } from './getStorage';
 
 export const setSaveEmail = (email) => {
   localStorage.setItem('user', JSON.stringify({ email }));
@@ -12,17 +12,20 @@ export const cocktailsToken = () => {
   localStorage.setItem('cocktailsToken', JSON.stringify(1));
 };
 
-export const setStorageFavorite = (item) => {
-  localStorage.setItem('favoriteRecipes', JSON.stringify(item));
+export const setStorageFavorite = async (item) => {
+  await localStorage.setItem('favoriteRecipes', JSON.stringify(item));
 };
 
 export const recipesInProgress = (id, ingredientsUsed, type) => {
-  const object = {
-    [type]: {
-      [id]: ingredientsUsed,
-    },
-  };
-  localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+  const getRecipesStorage = getInProgressRecipes();
+  if (getRecipesStorage) {
+    const object = {
+      [type]: [...getRecipesStorage[type], { [id]: ingredientsUsed }],
+    };
+    localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+  }
+  localStorage.setItem('inProgressRecipes', JSON
+    .stringify({ [type]: [{ [id]: ingredientsUsed }] }));
 };
 
 export const setDoneRecipe = (recipe) => {
