@@ -6,6 +6,13 @@ import Footer from '../components/Footer';
 function ExploreFood() {
   const history = useHistory();
 
+  const redirectToFoods = () => {
+    const response = fetch('https://www.themealdb.com/api/json/v1/1/random.php').then((res) => res.json());
+    response.then((data) => {
+      history.push(`/foods/${data.meals[0].idMeal}`);
+    });
+  };
+
   return (
     <div>
       <Header title="Explore Foods" toHaveSearch={ false } />
@@ -35,9 +42,9 @@ function ExploreFood() {
         <button
           data-testid="explore-surprise"
           type="button"
+          onClick={ redirectToFoods }
         >
           Surprise me!
-
         </button>
       </div>
       <Footer />

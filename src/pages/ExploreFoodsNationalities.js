@@ -23,9 +23,15 @@ function ExploreFoodsNationalities() {
 
   const handleSelectCountry = (e) => {
     const { value } = e.target;
-    filterRecipesByNationality(value).then(({ meals }) => {
-      setRecipesByNationality(meals);
-    });
+    if (value === 'All') {
+      listFoodsRecipes().then(({ meals }) => {
+        setRecipesByNationality(meals);
+      });
+    } else {
+      filterRecipesByNationality(value).then(({ meals }) => {
+        setRecipesByNationality(meals);
+      });
+    }
   };
 
   const redirectToFoods = (food) => {
@@ -42,6 +48,7 @@ function ExploreFoodsNationalities() {
           data-testid="explore-by-nationality-dropdown"
           onChange={ handleSelectCountry }
         >
+          <option data-testid="All-option">All</option>
           {getNationality.map((country, index) => (
             <option
               value={ country }
@@ -50,6 +57,7 @@ function ExploreFoodsNationalities() {
             >
               {country}
             </option>))}
+
         </select>
         <div className="container-recipes-card">
           {recipesByNationality.map((food, index) => (

@@ -12,8 +12,8 @@ export const cocktailsToken = () => {
   localStorage.setItem('cocktailsToken', JSON.stringify(1));
 };
 
-export const setStorageFavorite = (item) => {
-  localStorage.setItem('favoriteRecipes', JSON.stringify(item));
+export const setStorageFavorite = async (item) => {
+  await localStorage.setItem('favoriteRecipes', JSON.stringify(item));
 };
 
 export const recipesInProgress = (id, ingredientsUsed, type) => {

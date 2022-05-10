@@ -69,7 +69,6 @@ function FoodsIdReceita() {
           <RecomendationDrinksCard index={ index } />
         </div>
       ))}
-      {/* <div className="start-recipe-btn"> */}
       <button
         data-testid="start-recipe-btn"
         type="button"
@@ -77,7 +76,6 @@ function FoodsIdReceita() {
       >
         Start Recipe
       </button>
-      {/* </div> */}
     </div>
   );
 }

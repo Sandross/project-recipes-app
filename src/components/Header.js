@@ -1,14 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import profileIcon from '../images/profileIcon.svg';
 import searchIcon from '../images/searchIcon.svg';
-import SearchBarHeader from './SearchBarHeader';
+import SearchBarFoods from './SearchBarFoods';
+import SearchBarDrinks from './SearchBarDrinks';
 import './Header.css';
 
 function Header({ title, toHaveSearch }) {
   const history = useHistory();
   const [isSearchEnabled, setSearchEnabled] = useState(false);
+  const [searchValue, setSearchValue] = useState();
+  const [getFoodsOurDrink, setFoodsOurDrink] = useState('');
+
+  useEffect(() => {
+    const getPathname = history.location.pathname.split('/', 2)[1];
+    setFoodsOurDrink(getPathname);
+  }, [history]);
+
+  const handleChangeSearch = (e) => {
+    const { value } = e.target;
+    setSearchValue(value);
+  };
 
   return (
     <header className="headerContainer">
@@ -40,9 +53,16 @@ function Header({ title, toHaveSearch }) {
         </button>
       )}
         { isSearchEnabled
-          && (<input type="text" data-testid="search-input" />)}
+          && (
+            <input
+              type="text"
+              data-testid="search-input"
+              onChange={ handleChangeSearch }
+            />)}
       </div>
-      {toHaveSearch && <SearchBarHeader />}
+      {toHaveSearch && (getFoodsOurDrink === 'foods'
+        ? <SearchBarFoods searchValue={ searchValue } />
+        : <SearchBarDrinks searchValue={ searchValue } />)}
     </header>
   );
 }

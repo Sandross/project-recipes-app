@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { filterFoodsByIngredient } from '../helpers/FoodsAPI';
 import { filterDrinksByIngredient } from '../helpers/DrinksAPI';
 
 function ExploreIngredientsCard({ food, drink }) {
   const [ingredients, setIngredients] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     if (food) {
@@ -18,8 +20,17 @@ function ExploreIngredientsCard({ food, drink }) {
     }
   }, [food, drink]);
 
+  const handleIngredientClick = (e) => {
+    const value = e.target.closest('.card-explore-by-ingredient').lastChild.innerText;
+    if (food) {
+      history.push({ pathname: '/foods', state: { value } });
+    } else if (drink) {
+      console.log('drink', value);
+      history.push({ pathname: '/drinks', state: { value } });
+    }
+  };
+
   const getImage = (ingredient) => {
-    console.log(ingredient);
     if (food) {
       return `https://www.themealdb.com/images/ingredients/${ingredient}-Small.png`;
     } if (drink) {
@@ -36,6 +47,10 @@ function ExploreIngredientsCard({ food, drink }) {
             data-testid={ `${index}-ingredient-card` }
             className="card-explore-by-ingredient"
             key={ ingredient }
+            role="button"
+            tabIndex={ 0 }
+            onClick={ handleIngredientClick }
+            onKeyPress={ handleIngredientClick }
           >
             <div className="card-img-explore-ingredient">
               <img
@@ -54,7 +69,7 @@ function ExploreIngredientsCard({ food, drink }) {
 }
 
 ExploreIngredientsCard.propTypes = {
-  food: PropTypes.string,
+  food: PropTypes.bool,
   drink: PropTypes.string,
 };
 ExploreIngredientsCard.defaultProps = {
