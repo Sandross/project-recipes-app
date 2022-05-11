@@ -5,12 +5,14 @@ import { getStorageDoneRecipes } from '../storage/getStorage';
 import ShareRecipes from '../components/ShareRecipes';
 import LinkFavoriteRecipes from '../components/LinkFavoriteRecipes';
 import RecomendationFoodsCard from '../components/RecomendationFoodsCard';
+import ValidateInProgress from '../helpers/ValidateInProgress';
 import '../App.css';
 
 function DrinksIdReceita() {
   const { id } = useParams();
   const [recipes, setRecipes] = useState([]);
   const [isDone, setIsDone] = useState(false);
+  const [isInProgress, setIsInProgress] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
@@ -26,6 +28,10 @@ function DrinksIdReceita() {
     } else {
       setIsDone(false);
     }
+  }, [id]);
+
+  useEffect(() => {
+    setIsInProgress(ValidateInProgress('cocktails', id));
   }, [id]);
 
   const handleIngredient = () => {
@@ -75,7 +81,9 @@ function DrinksIdReceita() {
           type="button"
           onClick={ () => history.push(`/drinks/${id}/in-progress`) }
         >
-          Start Recipe
+          {isInProgress
+            ? 'Continue Recipe'
+            : 'Start Recipe'}
         </button>
       )}
     </div>

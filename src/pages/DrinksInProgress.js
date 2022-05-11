@@ -20,6 +20,7 @@ function DrinksInProgress() {
 
   const handleIngredientsUsed = (e) => {
     const getValue = e.target.value;
+    console.log(ingredientsUsed);
     if (ingredientsUsed) {
       if (!ingredientsUsed.some(
         (ingredient) => ingredient === getValue,
@@ -43,10 +44,13 @@ function DrinksInProgress() {
     const getRecipesInProgress = getInProgressRecipes();
     if (getRecipesInProgress && getRecipesInProgress.cocktails) {
       const { cocktails } = getRecipesInProgress;
-      const recipesArray = Object.values(cocktails);
-      setIngredientsUsed(...recipesArray);
+      const ingredientsArray = cocktails
+        .find((recipe) => Number(Object.keys(recipe)) === Number(id));
+      if (ingredientsArray) {
+        setIngredientsUsed(...Object.values(ingredientsArray));
+      }
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const ingredientsChecks = document.getElementsByClassName('check');
@@ -77,7 +81,7 @@ function DrinksInProgress() {
               className="check"
               onChange={ handleIngredientsUsed }
               checked={
-                ingredientsUsed.some((ing) => ing === ingredientAndMesure)
+                ingredientsUsed?.some((ing) => ing === ingredientAndMesure)
               }
               value={ ingredientAndMesure }
             />
