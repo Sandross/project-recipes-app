@@ -14,8 +14,6 @@ function FoodsInProgress() {
   const [isDisabled, setIsDisabled] = useState(true);
   const history = useHistory();
 
-  console.log(ingredientsUsed);
-
   useEffect(() => {
     idRecipesFoods(id).then(({ meals }) => setRecipes(meals));
   }, [id]);
@@ -35,6 +33,17 @@ function FoodsInProgress() {
     }
   };
 
+  // const verifyRecipeStatus = () => {
+  //   const doneRecipes = getStorageDoneRecipes();
+  //   const inProgressRecipes = getInProgressRecipes();
+  //   const { meals } = inProgressRecipes;
+  //   const idRecipe = Object.keys(meals);
+  //   console.log(idRecipe);
+  //   if (doneRecipes.some((recipe) => recipe.id === id)) {
+  //     setRecipeStatus('donedRecipe');
+  //   }
+  // };
+
   useEffect(() => {
     if (ingredientsUsed.length !== 0) {
       recipesInProgress(id, ingredientsUsed, 'meals');
@@ -45,12 +54,14 @@ function FoodsInProgress() {
     const getRecipesInProgress = getInProgressRecipes();
     if (getRecipesInProgress && getRecipesInProgress.meals) {
       const { meals } = getRecipesInProgress;
-      const recipesArray = meals.map((ids) => ids);
-
-      console.log(recipesArray);
-      setIngredientsUsed(...recipesArray);
+      const ingredientsArray = meals
+        .find((recipe) => Number(Object.keys(recipe)) === Number(id));
+      // const recipesArray = Object.values(meals);
+      if (ingredientsArray) {
+        setIngredientsUsed(...Object.values(ingredientsArray));
+      }
     }
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     const ingredientsChecks = document.getElementsByClassName('check');

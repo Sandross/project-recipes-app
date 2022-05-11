@@ -19,13 +19,31 @@ export const setStorageFavorite = async (item) => {
 export const recipesInProgress = (id, ingredientsUsed, type) => {
   const getRecipesStorage = getInProgressRecipes();
   if (getRecipesStorage) {
-    const object = {
-      [type]: [...getRecipesStorage[type], { [id]: ingredientsUsed }],
-    };
-    localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+    if (getRecipesStorage[type]) {
+      const test = getRecipesStorage[type].filter((e) => (
+        Number(Object.keys(e)) !== Number(id)));
+      const object = {
+        ...getRecipesStorage,
+        [type]: [...test, { [id]: ingredientsUsed }],
+      };
+      console.log('primeiro if');
+      localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+    } else {
+      const object = {
+        ...getRecipesStorage,
+        [type]: [{ [id]: ingredientsUsed }],
+      };
+      console.log('primeiro else');
+      console.log(Object.keys(getRecipesStorage));
+      console.log(Object.values(getRecipesStorage));
+
+      localStorage.setItem('inProgressRecipes', JSON.stringify(object));
+    }
+  } else {
+    console.log('segundo else');
+    localStorage.setItem('inProgressRecipes', JSON
+      .stringify({ [type]: [{ [id]: ingredientsUsed }] }));
   }
-  localStorage.setItem('inProgressRecipes', JSON
-    .stringify({ [type]: [{ [id]: ingredientsUsed }] }));
 };
 
 export const setDoneRecipe = (recipe) => {
