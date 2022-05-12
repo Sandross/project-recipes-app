@@ -23,7 +23,6 @@ function DrinksIdReceita() {
     const getDone = getStorageDoneRecipes();
     if (getDone) {
       const done = getDone.some((recipe) => recipe.id === id);
-      console.log(done);
       setIsDone(done);
     } else {
       setIsDone(false);

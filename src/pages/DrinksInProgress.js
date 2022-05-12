@@ -20,7 +20,6 @@ function DrinksInProgress() {
 
   const handleIngredientsUsed = (e) => {
     const getValue = e.target.value;
-    console.log(ingredientsUsed);
     if (ingredientsUsed) {
       if (!ingredientsUsed.some(
         (ingredient) => ingredient === getValue,

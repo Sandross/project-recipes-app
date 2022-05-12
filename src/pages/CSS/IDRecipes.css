@@ -1,0 +1,347 @@
+.container-id-recipes-geral {
+  align-items: center;
+  background: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/walpapers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover , 100px;
+  border-radius: 38px 42px 42px 48px;
+  display: flex;
+  flex-direction: column;
+  height: 810px;
+  margin-top: 39px;
+  width: 381px;
+}
+
+.second-id-recipes {
+  backdrop-filter: blur(1px);
+  background-color: rgba(221, 221, 221, 0.887);
+  border-radius: 38px 42px 42px 48px;
+  height: 100%;
+  width: 381px;
+}
+
+.Logo_photo_id_recipes {
+  margin: 10px;
+  width: 90px;
+}
+
+
+.Logo_texto_id_recipes {
+  width: 60%;
+}
+
+.container-id-recipes {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ! card receita */
+.id-recipe-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  width: 360px;
+}
+
+/* ! Card IMG Nome Share Like */
+.container-id-recipes-title {
+  align-items: center;
+  background-color: rgb(95, 194, 140);
+  border-radius: 15px;
+  box-shadow: rgba(56, 56, 56, 0.059) 0 -23px 25px 0 inset , rgba(56, 56, 56, 0.08) 0 -36px 30px 0 inset , rgba(0, 0, 0, 0.1) 0 -79px 40px 0 inset , rgba(0, 0, 0, 0.06) 0 2px 1px , rgba(0, 0, 0, 0.09) 0 4px 2px , rgba(0, 0, 0, 0.09) 0 8px 4px , rgba(0, 0, 0, 0.09) 0 16px 8px , rgba(0, 0, 0, 0.09) 0 32px 16px;
+  display: flex;
+  justify-content: space-between;
+  width: 336px;
+}
+
+[ data-testid = 'recipe-photo' ] {
+  border-radius: 5% 15% 5% 40%;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px , rgba(0, 0, 0, 0.3) 0 7px 13px -3px , rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+  height: 120px;
+  margin: 5px;
+  width: 120px;
+}
+
+[ data-testid = 'recipe-title' ] {
+  color: #404040;
+  font-family: Engagement , cursive;
+  font-size: 44px;
+  line-height: 1;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  width: 126px;
+}
+
+/* ! Share Like */
+.container-id-recipe-share-like {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: 70px;
+
+  /* width: 100%; */
+}
+
+.container-id-recipe-share-like button {
+  height: 35px;
+  width: 60px;
+}
+
+/* ! */
+[ data-testid = 'recipe-category' ] {
+  color: #404040;
+  font-family: Engagement , cursive;
+  font-size: 38px;
+  margin: 0;
+  width: 80%;
+}
+
+/* ! ingredients */
+.container-id-recipe-ingredients {
+  background-color: rgba(221, 221, 221, 0.707);
+  border-radius: 10px;
+  box-shadow: rgb(49, 108, 82) 0 2px 8px , rgba(0, 0, 0, 0.3) 0 7px 13px -3px , rgba(0, 0, 0, 0.2) -4px -4px 12px inset;
+  padding: 10px 0 0 30px;
+  width: 290px;
+}
+
+.id-recipe-card li {
+  font-size: 16px;
+  font-weight: 600;
+  list-style-type: circle;
+}
+
+/* ! instructions */
+.container-id-recipe-instructions {
+  background-color: rgba(221, 221, 221, 0.82);
+  border: #a7a6a6 solid 2px;
+  border-radius: 5px;
+  box-shadow: rgb(49, 108, 82) 0 2px 4px , rgba(0, 0, 0, 0.3) 0 7px 13px -3px;
+  margin: 16px 0;
+
+}
+
+[ data-testid = 'instructions' ] {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px;
+  text-align: justify;
+  text-justify: inter-word;
+  width: 320px;
+  word-wrap: break-word;
+}
+
+/* ! Video */
+iframe {
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 4px , rgba(0, 0, 0, 0.3) 0 7px 13px -3px , rgba(0, 0, 0, 0.2) 0 -3px 0 inset;
+}
+
+/* ! RecomendationCard */
+.container-recomendation {
+  height: 450px;
+  margin: 16px 0;
+  width: 320px;
+}
+
+.container-recomendation [ data-testid = 'recipe-photo' ] {
+  border-radius: 5%;
+  margin: 0;
+  width: 116px;
+}
+
+.container-recomendation-title {
+  display: flex;
+  overflow-x: auto;
+}
+
+.title-recomendation {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
+.Alcoholic-recomendation {
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
+
+.card-recomendation {
+  align-items: center;
+  background-color: rgba(221, 221, 221, 0.352);
+  border: rgb(95, 194, 140) solid 2px;
+  border-radius: 10px;
+  box-shadow: rgba(95, 194, 140, 0.141)  0 -36px 30px 0 inset , rgba(0, 0, 0, 0.1) 0 -79px 40px 0 inset , rgba(0, 0, 0, 0.06) 0 2px 1px , rgba(0, 0, 0, 0.09) 0 4px 2px , rgba(0, 0, 0, 0.09) 0 8px 4px , rgba(0, 0, 0, 0.09) 0 16px 8px , rgba(0, 0, 0, 0.09) 0 32px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 180px;
+  margin: 10px 0 10px 8px;
+  padding: 14px;
+}
+
+/* ! Button */
+.container-id-recipes-btn {
+  background-color: rgb(47, 193, 140);
+  border-radius: 0 0 38px 40px;
+  border-top: #ddd solid 2px;
+  box-shadow: rgba(56, 56, 56, 0.059) 0 -23px 25px 0 inset , rgba(56, 56, 56, 0.08) 0 -36px 30px 0 inset , rgba(0, 0, 0, 0.1) 0 -79px 40px 0 inset , rgba(0, 0, 0, 0.06) 0 2px 1px , rgba(0, 0, 0, 0.09) 0 4px 2px , rgba(0, 0, 0, 0.09) 0 8px 4px , rgba(0, 0, 0, 0.09) 0 16px 8px , rgba(0, 0, 0, 0.09) 0 32px 16px;
+  display: flex;
+  height: 62px;
+  justify-content: space-around;
+  margin-left: 0.5px;
+  padding: 5px;
+  width: 100%;
+}
+
+.start-recipe-btn {
+  align-items: center;
+  background: none;
+  border-color: transparent transparent transparent #404040;
+  border-style: solid;
+  border-width: 21px 0 21px 38px;
+  bottom: 0;
+  color: #404040;
+  cursor: pointer;
+  display: flex;
+  font-size: 20px;
+  font-weight: 900;
+  height: 24px;
+  justify-content: center;
+  margin: 10px;
+  position: fixed;
+  text-transform: uppercase;
+  transition: 100ms all ease;
+  width: 230px;
+  z-index: 1;
+
+}
+
+.start-recipe-btn:hover {
+  border-color: transparent transparent transparent  orange;
+  color: #ddd;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.container-check-ingredients {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ? Food Drink in progress */
+.container-id-recipe-ingredients-check {
+  background-color: rgba(221, 221, 221, 0.707);
+  border-radius: 10px;
+  box-shadow: rgb(49, 108, 82) 0 2px 8px , rgba(0, 0, 0, 0.3) 0 7px 13px -3px , rgba(0, 0, 0, 0.2) -4px -4px 12px inset;
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 600;
+  height: 100%;
+  padding: 15px 0 10px 10px;
+  width: 290px;
+
+}
+
+.container {
+  cursor: pointer;
+  display: block;
+  margin-bottom: 12px;
+  padding-left: 35px;
+  position: relative;
+  user-select: none;
+}
+
+.container input {
+  cursor: pointer;
+  opacity: 0;
+  position: absolute;
+}
+
+.checkmark {
+  background-color: #eee;
+  border: orange solid 2px;
+  border-radius: 50%;
+  height: 25px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 25px;
+}
+
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+.checkmark:after {
+  content: '';
+  display: none;
+  position: absolute;
+}
+
+.container input:checked ~ .checkmark {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPho7EdAuzdxOjzMFA4Ig8TFIVsSfF1UU5-Y6N0S7D6eBOxwA7gEpl0iGKuyybqfJEQKg&usqp=CAU');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 66px;
+  border: none;
+}
+
+
+.container input:checked ~ .checkmark:after {
+  display: block;
+
+}
+
+.container-id-recipes-btn-in-progress {
+  align-items: center;
+  background-color: rgb(47, 193, 140);
+  border-radius: 0 0 38px 40px;
+  border-top: #ddd solid 2px;
+  box-shadow: rgba(56, 56, 56, 0.059) 0 -23px 25px 0 inset , rgba(56, 56, 56, 0.08) 0 -36px 30px 0 inset , rgba(0, 0, 0, 0.1) 0 -79px 40px 0 inset , rgba(0, 0, 0, 0.06) 0 2px 1px , rgba(0, 0, 0, 0.09) 0 4px 2px , rgba(0, 0, 0, 0.09) 0 8px 4px , rgba(0, 0, 0, 0.09) 0 16px 8px , rgba(0, 0, 0, 0.09) 0 32px 16px;
+  display: flex;
+  height: 62px;
+  justify-content: space-around;
+  width: 382px;
+}
+
+.finish-recipe-btn-in-progress:disabled {
+  background: linear-gradient(117deg, rgb(254, 100, 70), rgb(254, 145, 80));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: wait;
+  display: block;
+  filter: opacity(0.5);
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 800;
+  height: 45px;
+  padding: 0 16px;
+  position: relative;
+
+}
+
+.finish-recipe-btn-in-progress:enabled {
+  background: linear-gradient(117deg, rgb(254, 100, 70), rgb(254, 145, 80));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 800;
+  height: 45px;
+  padding: 0 16px;
+  position: relative;
+}
+
