@@ -6,9 +6,27 @@
   padding: 0;
 }
 
-body {
-  background-color: rgb(95, 194, 140);
+#root {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+
+body {
+  background-image: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/celular2.png');
+  background-position: 54.2% 0;
+  background-repeat: no-repeat;
+  background-size: 770px;
+  left: 50%;
+  /* background: red; */
+}
+
+/* #404040; */
+
+/* rgb(95, 194, 140); */
+
+/* rgb(49, 108, 82) */
 
 /* ? FoodsIdReceita - DrinksIdReceita */
 .container-id-recipes {
@@ -178,105 +196,6 @@ body {
 
 /* ! RecomendationCard */
 
-/* ! FoodsRecipesCard */
-.container-card-recipes-geral {
-  padding-bottom: 100px;
-  padding-top: 120px;
-}
-
-.container-recipes-card {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  width: 100%;
-}
-
-.container-recipes-card-button button {
-  background: rgb(196, 190, 190);
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 0 10px rgb(194, 189, 189);
-  color: rgb(77, 75, 75);
-  cursor: pointer;
-  font-family: Georgia , Times , serif;
-  font-size: 16px;
-  font-weight: 700;
-  height: 26px;
-  margin: 5px 15px;
-  width: 90px;
-}
-
-.container-recipes-card-button {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-}
-
-.recipes-card-item {
-  align-items: center;
-  border: rgb(47, 193, 140) solid 1px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgb(47, 193, 140);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 8px;
-  padding: 5px;
-  width: 40%;
-}
-
-.name-recipes-card {
-  font-size: 16px;
-  font-weight: 600;
-  margin: 5px;
-}
-
-.foods-img, .drinks-img {
-  border-radius: 5%;
-  height: 120px;
-  width: 120px;
-}
-
-/* ! FoodsRecipesCard */
-
-
-/* ? Footer */
-footer {
-  bottom: 0;
-  position: fixed;
-  width: 100%;
-}
-
-.footer-container {
-  background-color: rgb(47, 193, 140);
-  display: flex;
-  justify-content: space-around;
-  padding: 5px;
-  width: 100%;
-}
-
-[ data-testid = 'drinks-bottom-btn' ] {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-[ data-testid = 'explore-bottom-btn' ] {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-[ data-testid = 'food-bottom-btn' ] {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-/* ? Footer */
-
 /* ! Share */
 .share-btn {
   background: none;
@@ -409,14 +328,6 @@ footer {
 
 /* ! Explore */
 
-/* ? Explore Foods / Drinks */
-.container-explore-foods-drinks {
-  margin: 15px;
-  padding-top: 100px;
-}
-
-/* ? Explore Foods / Drinks */
-
 /* ! ExploreIngredientsCard */
 .container-explore-ingredients-card {
   align-items: center;
@@ -468,3 +379,23 @@ footer {
 }
 
 /* ? ExploreFoodsNationalities */
+
+
+@media screen and ( max-width : 340px ) {
+
+  .container-foods-drinks-header-card-footer {
+    width: 100%;
+  }
+
+
+}
+
+@media screen and ( max-height : 640px ) {
+
+  .container-foods-drinks-header-card-footer {
+    width: 100%;
+  }
+
+
+}
+

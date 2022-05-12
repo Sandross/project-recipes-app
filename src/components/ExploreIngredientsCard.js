@@ -21,7 +21,7 @@ function ExploreIngredientsCard({ food, drink }) {
   }, [food, drink]);
 
   const handleIngredientClick = (e) => {
-    const value = e.target.closest('.card-explore-by-ingredient').lastChild.innerText;
+    const value = e.target.closest('.recipes-card-item').lastChild.innerText;
     if (food) {
       history.push({ pathname: '/foods', state: { value } });
     } else if (drink) {
@@ -40,29 +40,38 @@ function ExploreIngredientsCard({ food, drink }) {
 
   const TWELVE = 12;
   return (
-    <div className="container-explore-ingredients-card">
-      {ingredients.map((ingredient, index) => (
-        index < TWELVE && (
-          <div
-            data-testid={ `${index}-ingredient-card` }
-            className="card-explore-by-ingredient"
-            key={ ingredient }
-            role="button"
-            tabIndex={ 0 }
-            onClick={ handleIngredientClick }
-            onKeyPress={ handleIngredientClick }
-          >
-            <div className="card-img-explore-ingredient">
-              <img
-                data-testid={ `${index}-card-img` }
-                src={ getImage(ingredient) }
-                alt={ ingredient }
-              />
-            </div>
-
-            <p data-testid={ `${index}-card-name` }>{ingredient}</p>
-          </div>
-        )))}
+    <div className="container-card-recipes-geral">
+      <div className="container-card-recipes">
+        <div className="container-recipes-card">
+          {ingredients.map((ingredient, index) => (
+            index < TWELVE && (
+              <div
+                data-testid={ `${index}-ingredient-card` }
+                className="recipes-card-item"
+                key={ ingredient }
+                role="button"
+                tabIndex={ -1 }
+                onClick={ handleIngredientClick }
+                onKeyPress={ handleIngredientClick }
+              >
+                <div className="card-img-explore-ingredient">
+                  <img
+                    className="foods-img"
+                    data-testid={ `${index}-card-img` }
+                    src={ getImage(ingredient) }
+                    alt={ ingredient }
+                  />
+                </div>
+                <p
+                  className="name-recipes-card"
+                  data-testid={ `${index}-card-name` }
+                >
+                  {ingredient}
+                </p>
+              </div>
+            )))}
+        </div>
+      </div>
     </div>
 
   );

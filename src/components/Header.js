@@ -25,30 +25,35 @@ function Header({ title, toHaveSearch }) {
   };
 
   return (
-    <header className="headerContainer">
-      <div className="headerContainer-logo">
-        <img
-          className="img-header"
-          src={ LogoCinzaVerde }
-          alt="profile"
-        />
-        <h1 className="headerTitle">Delicius Recipes</h1>
-      </div>
-      <div className="header-title">
-        <button
-          data-testid="profile-top-btn"
-          type="button"
-          src={ profileIcon }
-          onClick={ () => {
-            history.push('/profile');
-          } }
-        >
-          <img src={ profileIcon } alt="profileIcon" />
-        </button>
+    <div className="container-geral-header">
+      <header className="headerContainer">
+        <div className="headerContainer-logo">
+          <img
+            className="img-header"
+            src={ LogoCinzaVerde }
+            alt="profile"
+          />
+          <h1 className="headerTitle">Delicious Recipes</h1>
+        </div>
+        <div className="header-title">
+          <button
+            data-testid="profile-top-btn"
+            type="button"
+            src={ profileIcon }
+            onClick={ () => {
+              history.push('/profile');
+            } }
+          >
+            <img
+              className="icon-btn-img"
+              src={ profileIcon }
+              alt="profileIcon"
+            />
+          </button>
 
-        <h2 data-testid="page-title">{title}</h2>
+          <h2 data-testid="page-title">{title}</h2>
 
-        { toHaveSearch
+          { toHaveSearch
         && (
           <button
             data-testid="search-top-btn"
@@ -58,12 +63,12 @@ function Header({ title, toHaveSearch }) {
               setSearchEnabled(!isSearchEnabled);
             } }
           >
-            <img src={ searchIcon } alt="profileIcon" />
+            <img className="icon-btn-img" src={ searchIcon } alt="profileIcon" />
           </button>
         )}
-      </div>
-      <div className="search-header-container">
-        { isSearchEnabled
+        </div>
+        <div className="search-header-container">
+          { isSearchEnabled
             && (
               <input
                 className="search-header-input"
@@ -72,11 +77,12 @@ function Header({ title, toHaveSearch }) {
                 onChange={ handleChangeSearch }
               />
             )}
-      </div>
-      {toHaveSearch && (getFoodsOurDrink === 'foods'
-        ? <SearchBarFoods searchValue={ searchValue } />
-        : <SearchBarDrinks searchValue={ searchValue } />)}
-    </header>
+        </div>
+        {toHaveSearch && (getFoodsOurDrink === 'foods'
+          ? <SearchBarFoods searchValue={ searchValue } />
+          : <SearchBarDrinks searchValue={ searchValue } />)}
+      </header>
+    </div>
   );
 }
 

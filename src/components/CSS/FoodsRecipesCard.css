@@ -1,0 +1,117 @@
+.container-card-recipes-geral {
+  align-items: center;
+  background-image: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/walpapers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* height: 100%; */
+
+  /* margin: 0; */
+  margin-top: 96px;
+
+  /* padding-bottom: 50px; */
+
+  /* padding-top: 70px; */
+  width: 380px;
+}
+
+.container-card-recipes {
+  background: rgba(240, 255, 246, 0.717);
+  height: 559px;
+  overflow-y: scroll;
+  width: 380px;
+}
+
+.container-recipes-card-button {
+  backdrop-filter: blur(5px);
+  background: rgba(221, 221, 221, 0.309);
+  display: flex;
+  flex-wrap: wrap;
+  height: 76px;
+  justify-content: space-evenly;
+  margin: 0;
+  position: fixed;
+  top: 160px;
+  width: 380px;
+  z-index: 1;
+}
+
+.container-recipes-card-button button {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, rgb(49, 108, 82) 0, rgb(95, 194, 140) 100%);
+  border: 0;
+  border-radius: 15px;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px , rgba(45, 35, 66, 0.3) 0 7px 13px -3px , rgba(58, 65, 111, 0.5) 0 -3px 0 inset;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 24px;
+  justify-content: center;
+  margin: 5px 15px;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: box-shadow 0.15s , transform 0.15s;
+  white-space: nowrap;
+  width: 96px;
+}
+
+.container-recipes-card-button button:focus {
+  box-shadow: rgb(49, 108, 82) 0 0 0 1.5px inset , rgba(45, 35, 66, 0.4) 0 2px 4px , rgba(45, 35, 66, 0.3) 0 7px 13px -3px , rgb(49, 108, 82) 0 -3px 0 inset;
+}
+
+.container-recipes-card-button button:hover {
+  box-shadow: rgba(46, 66, 35, 0.3) 0 4px 8px , rgba(46, 66, 35, 0.3) 0 7px 13px -3px , rgb(49, 108, 82) 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.container-recipes-card-button button:active {
+  box-shadow: orange 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.container-recipes-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.recipes-card-item {
+  align-items: center;
+  /* backdrop-filter: blur(10px); */
+  background: rgb(228, 228, 228);
+  border: 1px solid #404040;
+  border-radius: 10px;
+  box-shadow: 0 6px 22px 0 #404040;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 4px 0;
+  padding-top: 8px;
+  width: 40%;
+}
+
+.name-recipes-card {
+  font-family: Engagement , cursive;
+  font-size: 24px;
+  margin: 0;
+  padding: 3px;
+  text-align: center;
+}
+
+.foods-img, .drinks-img {
+  border-radius: 5%;
+  box-shadow: #ddd 0 0 10px;
+  border: rgb(49, 108, 82) 2px solid;
+  height: 120px;
+  width: 120px;
+}

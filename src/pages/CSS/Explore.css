@@ -1,0 +1,234 @@
+.container-explore-foods-drinks {
+  display: flex;
+  flex-direction: column;
+  margin-top: 120px;
+}
+
+.container-explore-foods-drinks-header-card-footer {
+  align-items: center;
+  background-image: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/walpapers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* back */
+  display: flex;
+  flex-direction: column;
+  height: 670px;
+  justify-content: center;
+  width: 380px;
+}
+
+.container-explore-foods-drinks-header {
+  align-items: center;
+  background-color: rgb(49, 108, 82);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 70px;
+  width: 380px;
+}
+
+.container-explore-buttons {
+  align-items: center;
+  background: rgba(240, 255, 246, 0.717);
+  display: flex;
+  flex-direction: column;
+  height: 880px;
+  justify-content: space-evenly;
+  margin: 0;
+  width: 380px;
+}
+
+.btn-explore {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline-offset: 4px;
+  padding: 0;
+  position: relative;
+  touch-action: manipulation;
+  transition: filter 250ms;
+  user-select: none;
+  width: 220px;
+}
+
+.shadow {
+  background: rgba(0, 0, 0, 0.615);
+  border-radius: 15px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateY(2px);
+  transition: transform
+    600ms
+    cubic-bezier(0.9, 1.4, 0.9, 2);
+  width: 100%;
+  will-change: transform;
+}
+
+.edge {
+  background: linear-gradient(to left, rgb(49, 108, 82)  0%, rgb(95, 194, 140) 8%, rgb(95, 194, 140) 92%, rgb(49, 108, 82)  100%);
+  border-radius: 12px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.edge-surprise {
+  background: linear-gradient(to left, rgb(254, 100, 70)  0%, rgb(254, 145, 80) 8%, rgb(254, 145, 80) 92%, rgb(254, 100, 70)  100%);
+  border-radius: 12px;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.front {
+  background: rgb(49, 108, 82);
+  border-radius: 12px;
+  color: white;
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 12px 27px;
+  position: relative;
+  transform: translateY(-4px);
+  transition: transform
+    600ms
+    cubic-bezier(0.3, 0.7, 0.4, 1);
+  will-change: transform;
+}
+
+.front-surprise {
+
+  /* background: rgb(49, 108, 82); */
+  background: linear-gradient(117deg, rgb(254, 145, 80), rgb(254, 100, 70));
+  border-radius: 12px;
+  color: white;
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 800;
+  padding: 12px 27px;
+  position: relative;
+  transform: translateY(-4px);
+  transition: transform
+    600ms
+    cubic-bezier(0.3, 0.7, 0.4, 1);
+  will-change: transform;
+}
+
+.btn-explore:hover {
+  filter: brightness(110%);
+}
+
+.btn-explore:hover .front {
+  transform: translateY(-8px);
+  transition: transform
+    250ms
+    cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.btn-explore:active .front {
+  transform: translateY(-2px);
+  transition: transform 340ms;
+}
+
+.btn-explore:hover .front-surprise {
+  transform: translateY(-8px);
+  transition: transform
+    250ms
+    cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.btn-explore:active .front-surprise {
+  transform: translateY(-2px);
+  transition: transform 340ms;
+}
+
+.btn-explore:hover .shadow {
+  transform: translateY(4px);
+  transition: transform
+    250ms
+    cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+
+.btn-explore:active .shadow {
+  transform: translateY(1px);
+  transition: transform 340ms;
+}
+
+.btn-explore:focus:not( :focus-visible ) {
+  outline: none;
+}
+
+/* explore Nationality */
+.container-card-recipes-nationality {
+  background-color: rgba(245, 245, 245, 0.654);
+  height: 559px;
+  margin-top: 110px;
+  overflow-y: scroll;
+  width: 380px;
+}
+
+.container-recipes-card-nationality {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-bottom: 15px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.container-recipes-card-button-nationality {
+  align-items: center;
+
+  /* backdrop-filter: blur(5px); */
+  background-color: rgba(245, 245, 245, 0.654);
+  display: flex;
+  height: 59.3px;
+  justify-content: center;
+  margin: 0;
+  position: fixed;
+  top: 172px;
+  width: 380px;
+  z-index: 0;
+}
+
+.Select_Nationality {
+  background: rgb(95, 194, 140);
+  border: none;
+  border-radius: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 0 0.32rem rgb(49, 108, 84);
+  color: whitesmoke;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 800;
+  height: 35px;
+  line-height: 3;
+  margin-left: 10px;
+  overflow: hidden;
+  padding: 8px 20px;
+  position: relative;
+  text-transform: uppercase;
+  width: 240px;
+}
+
+.Select_Nationality:focus {
+  background: rgb(49, 108, 84);
+  box-shadow: 0 0 0 0.32rem rgb(95, 194, 140);
+  outline: transparent;
+}
+
+.Select_Nationality:after {
+  background-color: blue;
+}
+

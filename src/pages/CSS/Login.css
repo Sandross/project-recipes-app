@@ -1,9 +1,12 @@
 .login-container {
   align-items: center;
-  background: rgb(95, 194, 140);
+  background: rgb(49, 108, 82);
+  border-radius: 40px;
   display: flex;
-  height: 100vh;
+  height: 810px;
   justify-content: center;
+  margin-top: 37px;
+  width: 380px;
 }
 
 .container-img-login {

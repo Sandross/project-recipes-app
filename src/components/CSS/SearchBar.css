@@ -8,16 +8,9 @@
 
 .input-searchBar {
   align-items: center;
-
-  /* position: relative; */
-
-  /* background-color: brown; */
-
-  /* cursor: pointer; */
   display: flex;
   font-size: 15px;
-
-  /* justify-content: space-evenly; */
+  justify-content: space-evenly;
   width: 100%;
 
 }
@@ -30,6 +23,9 @@
 .input-searchBar label {
   align-items: center;
   display: flex;
+  font-size: 12px;
+  font-weight: 900;
+  justify-content: space-evenly;
   margin: 0;
 }
 
@@ -41,23 +37,23 @@
 
 [ data-testid = 'exec-search-btn' ] {
   background: none;
-  background-color: rgb(49, 108, 82);
+  background-color: orange;
   border: #ddd solid 2px;
   border-radius: 15px;
-  box-shadow: 0 0 10px rgb(49, 108, 82);
-  color: #ddd;
+  box-shadow: 0 0 8px #404040;
+  color: #404040;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-  margin: 5px 0;
+  font-size: 12px;
+  font-weight: 600;
+  margin: 8px 0;
   padding: 0 5px;
-  background-color: #ddd;
-  color: rgb(49, 108, 82);
+  width: 80px;
 }
 
 [ data-testid = 'exec-search-btn' ]:hover {
-  background-color: rgb(49, 108, 82);
-  color: #ddd;
+  background-color: #ddd;
+  border: rgb(95, 194, 140) solid 2px;
+  color: rgb(49, 108, 82);
 }
 
 [ type = 'radio' ]:after {
@@ -75,7 +71,7 @@
 }
 
 [ type = 'radio' ]:checked:after {
-  background-color: #ffa500;
+  background-color: orange;
   border: 2px solid white;
   border-radius: 15px;
   content: '';
