@@ -1,0 +1,60 @@
+footer {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 788px;
+  width: 381px;
+  z-index: 1;
+}
+
+.footer-container {
+  background-color: rgb(47, 193, 140);
+  border-radius: 0 0 38px 40px;
+  border-top: #ddd solid 2px;
+  display: flex;
+  height: 60px;
+  justify-content: space-around;
+  margin-left: 0.5px;
+  padding: 5px;
+  width: 100%;
+}
+
+[ data-testid = 'drinks-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+[ data-testid = 'explore-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+[ data-testid = 'food-bottom-btn' ] {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-container img {
+  filter: invert(22%)
+    sepia(0%)
+    saturate(3120%)
+    hue-rotate(215deg)
+    brightness(89%)
+    contrast(82%);
+  height: 40px;
+  padding-bottom: 10px;
+  width: 40px;
+}
+
+.test {
+  background-color: rgba(245, 245, 245, 0);
+  height: 235px;
+  margin: 0;
+}
+
+.test p {
+  color: whitesmoke;
+}

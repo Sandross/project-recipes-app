@@ -5,6 +5,7 @@ import MyContext from '../context/Context';
 import {
   listFoodsRecipes, listCategoryRecipes, filterByCategory,
 } from '../helpers/FoodsAPI';
+import './CSS/FoodsRecipesCard.css';
 
 function FoodsRecipesCard({ getIngredients }) {
   const [foodsList, setFoodsList] = useState([]);
@@ -55,66 +56,68 @@ function FoodsRecipesCard({ getIngredients }) {
   const FIVE = 5;
   return (
     <div className="container-card-recipes-geral">
-      <div className="container-recipes-card-button">
-        <button
-          data-testid="All-category-filter"
-          type="button"
-          onClick={ () => handleClick('All') }
-        >
-          All
+      <div className="container-card-recipes">
+        <div className="container-recipes-card-button">
+          <button
+            data-testid="All-category-filter"
+            type="button"
+            onClick={ () => handleClick('All') }
+          >
+            All
 
-        </button>
-        {categoryList.map((categories, index) => (
-          index < FIVE && (
-            <div
-              key={ categories.strCategory }
-            >
-              <button
-                type="button"
-                data-testid={
-                  `${categories.strCategory}-category-filter`
-                }
-                onClick={ () => handleClick(categories.strCategory) }
-
+          </button>
+          {categoryList.map((categories, index) => (
+            index < FIVE && (
+              <div
+                key={ categories.strCategory }
               >
-                {categories.strCategory}
-              </button>
-            </div>
-          )
-        ))}
-      </div>
+                <button
+                  type="button"
+                  data-testid={
+                    `${categories.strCategory}-category-filter`
+                  }
+                  onClick={ () => handleClick(categories.strCategory) }
 
-      <div className="container-recipes-card">
-        {foodsList.map((food, index) => (
-          index < TWELVE && (
-            <div
-              className="recipes-card-item"
-              role="button"
-              data-testid={ `${index}-recipe-card` }
-              key={ food.strMeal }
-              tabIndex={ 0 }
-              onClick={ () => {
-                redirectToFoods(food);
-              } }
-              onKeyPress={ () => {
-                redirectToFoods(food);
-              } }
-            >
-              <img
-                data-testid={ `${index}-card-img` }
-                src={ food.strMealThumb }
-                alt={ food.strMeal }
-                className="foods-img"
-              />
-              <h3
-                className="name-recipes-card"
-                data-testid={ `${index}-card-name` }
+                >
+                  {categories.strCategory}
+                </button>
+              </div>
+            )
+          ))}
+        </div>
+
+        <div className="container-recipes-card">
+          {foodsList.map((food, index) => (
+            index < TWELVE && (
+              <div
+                className="recipes-card-item"
+                role="button"
+                data-testid={ `${index}-recipe-card` }
+                key={ food.strMeal }
+                tabIndex={ 0 }
+                onClick={ () => {
+                  redirectToFoods(food);
+                } }
+                onKeyPress={ () => {
+                  redirectToFoods(food);
+                } }
               >
-                {food.strMeal}
+                <img
+                  data-testid={ `${index}-card-img` }
+                  src={ food.strMealThumb }
+                  alt={ food.strMeal }
+                  className="foods-img"
+                />
+                <h3
+                  className="name-recipes-card"
+                  data-testid={ `${index}-card-name` }
+                >
+                  {food.strMeal}
 
-              </h3>
-            </div>)
-        ))}
+                </h3>
+              </div>)
+          ))}
+        </div>
       </div>
     </div>
   );

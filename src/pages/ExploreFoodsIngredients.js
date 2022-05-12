@@ -5,10 +5,12 @@ import ExploreIngredientsCard from '../components/ExploreIngredientsCard';
 
 function ExploreFoodsIngredients() {
   return (
-    <div>
-      <Header title="Explore Ingredients" toHaveSearch={ false } />
-      <ExploreIngredientsCard food />
-      <Footer />
+    <div className="container-foods-drinks">
+      <div className="container-foods-drinks-header-card-footer">
+        <Header title="Explore Ingredients" toHaveSearch={ false } />
+        <ExploreIngredientsCard food />
+        <Footer />
+      </div>
     </div>
   );
 }

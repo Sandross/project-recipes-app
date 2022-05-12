@@ -1,31 +1,24 @@
 .container-foods-drinks {
-  background-color: red;
+
+  /* background-color: rgb(49, 108, 82); */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  height: 100%;
+  margin: 20px 0 0;
+  width: 380px;
 }
 
 .container-foods-drinks-header-card-footer {
   align-items: center;
-  background-color: #fafafa;
+  background-color: rgb(49, 108, 82);
   border: none;
-  border-radius: 0;
+  border-radius: 40px 40px 0 0;
   box-shadow: none;
   display: flex;
   flex-direction: column;
-  height: 100%;
   justify-content: center;
-  margin: 0 auto;
+  margin: 16px auto;
   overflow: hidden;
-  padding: 0;
-  width: 360px;
+  width: 380px;
 }
 
-@media screen and ( max-width : 768px ) {
-
-  .container-foods-drinks-header-card-footer {
-    width: 100%;
-  }
-
-
-}
