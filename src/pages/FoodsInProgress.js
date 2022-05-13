@@ -159,7 +159,7 @@ function FoodsInProgress() {
             </div>
           ))}
           <div
-            desabled={ isDisabled }
+            disabled={ isDisabled }
             className="container-id-recipes-btn-in-progress"
           >
             <button

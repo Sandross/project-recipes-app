@@ -116,6 +116,18 @@ function FoodsIdReceita() {
                   : 'Start Recipe'}
               </button>
             )}
+            {isDone && (
+
+              <button
+                className="recipe-done-btn"
+                type="button"
+                onClick={ () => history.push('/done-recipes') }
+              >
+                <span> Finished Recipe</span>
+                <br />
+                GO Done recipes
+              </button>
+            )}
           </div>
         </div>
       </div>

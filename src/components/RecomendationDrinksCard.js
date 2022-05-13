@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'react-bootstrap/esm/Image';
 import { listDrinksRecipes } from '../helpers/DrinksAPI';
-import './RecomendationCard.css';
 
 function RecomendationDrinksCard() {
   const [recomendationList, setRecomendationList] = useState([]);

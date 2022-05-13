@@ -9,6 +9,7 @@ function ButtonTest({ testid, favoritedRecipe }) {
   return (
     <div>
       <button
+        className="btn-link-favorite"
         data-testid={ testid.length > 0 ? testid : 'favorite-btn' }
         type="button"
         src={ isFavorite ? 'blackHeartIcon' : 'whiteHeartIcon' }

@@ -71,8 +71,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  padding-top: 10px;
   padding-bottom: 15px;
+  padding-top: 10px;
   width: 100%;
 }
 
@@ -100,9 +100,9 @@
 }
 
 .foods-img, .drinks-img {
+  border: rgb(49, 108, 82) 2px solid;
   border-radius: 5%;
   box-shadow: #ddd 0 0 10px;
-  border: rgb(49, 108, 82) 2px solid;
   height: 120px;
   width: 120px;
 }

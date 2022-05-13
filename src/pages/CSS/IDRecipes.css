@@ -127,6 +127,7 @@
 }
 
 [ data-testid = 'instructions' ] {
+  color: #404040;
   font-size: 14px;
   font-weight: 600;
   padding: 8px;
@@ -343,5 +344,26 @@ iframe {
   height: 45px;
   padding: 0 16px;
   position: relative;
+}
+
+.recipe-done-btn {
+  background: linear-gradient(117deg, rgb(254, 100, 70), rgb(254, 145, 80));
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  height: 50px;
+  padding: 0 16px;
+}
+
+.recipe-done-btn span {
+  color: rgb(49, 108, 82) ;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 800;
+  margin: 0;
 }
 
