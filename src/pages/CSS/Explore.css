@@ -46,6 +46,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  height: 100px;
   outline-offset: 4px;
   padding: 0;
   position: relative;
@@ -56,7 +57,7 @@
 }
 
 .shadow {
-  background: rgba(0, 0, 0, 0.615);
+  background: rgba(78, 76, 76, 0.615);
   border-radius: 15px;
   height: 100%;
   left: 0;
@@ -65,7 +66,7 @@
   transform: translateY(2px);
   transition: transform
     600ms
-    cubic-bezier(0.9, 1.4, 0.9, 2);
+    cubic-bezier(0.4, 0.7, 0.4, 1);
   width: 100%;
   will-change: transform;
 }
@@ -95,11 +96,12 @@
   border-radius: 12px;
   color: white;
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 800;
-  padding: 12px 27px;
+  height: 100px;
+  padding: 30px 20px;
   position: relative;
-  transform: translateY(-4px);
+  transform: translateY(-1px);
   transition: transform
     600ms
     cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -107,17 +109,17 @@
 }
 
 .front-surprise {
-
-  /* background: rgb(49, 108, 82); */
-  background: linear-gradient(117deg, rgb(254, 145, 80), rgb(254, 100, 70));
+  background: linear-gradient(117deg, rgb(254, 100, 70), rgb(254, 145, 80));
   border-radius: 12px;
   color: white;
   display: block;
-  font-size: 1.1rem;
+  font-size: 1.6rem;
+  font-style: italic;
   font-weight: 800;
-  padding: 12px 27px;
+  height: 100px;
+  padding: 30px 27px;
   position: relative;
-  transform: translateY(-4px);
+  transform: translateY(-2px);
   transition: transform
     600ms
     cubic-bezier(0.3, 0.7, 0.4, 1);
@@ -125,11 +127,11 @@
 }
 
 .btn-explore:hover {
-  filter: brightness(110%);
+  filter: brightness(120%);
 }
 
 .btn-explore:hover .front {
-  transform: translateY(-8px);
+  transform: translateY(-2px);
   transition: transform
     250ms
     cubic-bezier(0.3, 0.7, 0.4, 1.5);
@@ -141,7 +143,7 @@
 }
 
 .btn-explore:hover .front-surprise {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   transition: transform
     250ms
     cubic-bezier(0.3, 0.7, 0.4, 1.5);
@@ -204,7 +206,6 @@
 .Select_Nationality {
   background: rgb(95, 194, 140);
   border: none;
-  border-radius: 2rem;
   border-radius: 12px;
   box-shadow: 0 0 0 0.32rem rgb(49, 108, 84);
   color: whitesmoke;

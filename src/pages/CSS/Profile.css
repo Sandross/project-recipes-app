@@ -1,0 +1,19 @@
+.container-favorite-buttons {
+  align-items: center;
+  background: rgba(240, 255, 246, 0.717);
+  display: flex;
+  flex-direction: column;
+  height: 880px;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  width: 380px;
+}
+
+[ data-testid = 'profile-email' ] {
+  color: whitesmoke;
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  position: fixed;
+  top: 132px;
+}

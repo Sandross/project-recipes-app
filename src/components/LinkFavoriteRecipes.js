@@ -2,14 +2,11 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import MyContext from '../context/Context';
-// import whiteHeartIcon from '../images/whiteHeartIcon.svg';
-// import blackHeartIcon from '../images/blackHeartIcon.svg';
 import { setStorageFavorite } from '../storage/setStorage';
 import { idRecipesFoods } from '../helpers/FoodsAPI';
 import { idRecipesDrinks } from '../helpers/DrinksAPI';
 import ButtonTest from './ButtonTest';
-// import Foods from '../pages/Foods';
-// import { getFavoriteRecipes } from '../storage/getStorage';
+import '../App.css';
 
 function LinkFavoriteRecipes({ testid, paramsID }) {
   const [testFoodAPI, setTestFoodAPI] = useState([]);

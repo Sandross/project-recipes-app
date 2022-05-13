@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'react-bootstrap/esm/Image';
 import { listFoodsRecipes } from '../helpers/FoodsAPI';
-import './RecomendationCard.css';
 
 function RecomendationDrinksCard() {
   const [recomendationList, setRecomendationList] = useState([]);
@@ -14,29 +13,31 @@ function RecomendationDrinksCard() {
 
   return (
     <div className="container-recomendation">
-      {recomendationList.map((food, index) => (
-        index < SIX && (
-          <div
-            className="card-recomendation"
-            data-testid={ `${index}-recomendation-card` }
-            key={ food.idMeal }
-          >
-            <img
-              width="80"
-              height="60"
-              data-testid="recipe-photo"
-              src={ food.strMealThumb }
-              alt={ food.strMeal }
-            />
-            <h3
-              data-testid={ `${index}-recomendation-title` }
+      <div className="container-recomendation-title">
+        {recomendationList.map((food, index) => (
+          index < SIX && (
+            <div
+              className="card-recomendation"
+              data-testid={ `${index}-recomendation-card` }
+              key={ food.idMeal }
             >
-              {food.strMeal}
+              <img
+                className="img-recomendation"
+                data-testid="recipe-photo"
+                src={ food.strMealThumb }
+                alt={ food.strMeal }
+              />
+              <h3
+                className="title-recomendation"
+                data-testid={ `${index}-recomendation-title` }
+              >
+                {food.strMeal}
 
-            </h3>
-            <h5>{food.strCategory}</h5>
-          </div>
-        )))}
+              </h3>
+              <h5>{food.strCategory}</h5>
+            </div>
+          )))}
+      </div>
     </div>
   );
 }
