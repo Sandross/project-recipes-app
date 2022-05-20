@@ -1,6 +1,10 @@
 Boas vindas ao repositório do projeto de Receitas!
 
-Estr foi um projeto feito por grupo de 3 pessoas, utilizando a metodologia de pair-programming, onde houve uma troca de conhecimentos muito grande, e ficamos muito satisfeitos com o resultado.
+
+Este foi um projeto feito por grupo de 4 pessoas, utilizando a metodologia de pair-programming, onde houve uma troca de conhecimentos muito grande, e ficamos muito satisfeitos com o resultado.
+
+
+
 
 Para rodar o projeto:
 
@@ -8,12 +12,10 @@ Para rodar o projeto:
 
 -Npm start
 
-*Habilidades:*
 
 
-
-
-*Nesse projeto, foram necessárias habilidades de:*
+Habilidades:
+Nesse projeto, foram necessárias habilidades de:
 
 Utilizar Componentes de classe
 Utilizar Context-API para gerenciar estado
