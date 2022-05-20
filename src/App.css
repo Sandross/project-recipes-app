@@ -13,7 +13,7 @@
   justify-content: center;
 }
 
-body {
+/* body {
   background-attachment: fixed;
   background-image: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/celular2.png');
   background-position: 54.2% 0;
@@ -21,16 +21,8 @@ body {
   background-size: 770px;
   left: 50%;
 
-  /* background: red; */
-}
+} */
 
-/* #404040 */
-
-/* rgb(95, 194, 140) */
-
-/* rgb(49, 108, 82) */
-
-/* ! Share */
 .share-btn {
   background: none;
   border: none;

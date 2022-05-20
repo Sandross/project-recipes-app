@@ -1,6 +1,6 @@
 .container-id-recipes-geral {
   align-items: center;
-  background: url('/home/flavio/Trybe-projects/sd-019-c-project-recipes-app/src/images/Logo/walpapers.jpg');
+  background: url('../../images/Logo/walpapers.jpg');
   background-repeat: no-repeat;
   background-size: cover , 100px;
   border-radius: 38px 42px 42px 48px;
