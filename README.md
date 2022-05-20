@@ -17,14 +17,14 @@ Para rodar o projeto:
 Habilidades:
 Nesse projeto, foram necessárias habilidades de:
 
-Utilizar Componentes de classe
+-Utilizar Componentes de classe
 
-Utilizar Context-API para gerenciar estado
+-Utilizar Context-API para gerenciar estado
 
-Utilizar Requisições a API, por meio de Fetch-Api
+-Utilizar Requisições a API, por meio de Fetch-Api
 
-Utilizar Hooks no React
+-Utilizar Hooks no React
 
-Utilizar Dados vindos da APIs
+-Utilizar Dados vindos da APIs
 
-Utilizar Componentização em React
+-Utilizar Componentização em React
