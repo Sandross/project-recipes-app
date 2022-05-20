@@ -15,6 +15,9 @@ Para rodar o projeto:
 
 -Npm start
 
+-Digite um Email no formato email@email.com
+
+-Digite uma senha de 10 ou mais caracteres
 
 
 Habilidades:
