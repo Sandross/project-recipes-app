@@ -8,9 +8,12 @@ Para rodar o projeto:
 
 -Npm start
 
-Habilidades:
+*Habilidades:*
 
-Nesse projeto, foram necessárias habilidades de:
+
+
+
+*Nesse projeto, foram necessárias habilidades de:*
 
 Utilizar Componentes de classe
 Utilizar Context-API para gerenciar estado
