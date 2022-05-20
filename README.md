@@ -1,6 +1,9 @@
 Boas vindas ao repositório do projeto de Receitas!
 
 
+LINK: https://recipes-i7mjy1xap-sandross.vercel.app/
+
+
 Este foi um projeto feito por grupo de 4 pessoas, utilizando a metodologia de pair-programming, onde houve uma troca de conhecimentos muito grande, e ficamos muito satisfeitos com o resultado.
 
 
