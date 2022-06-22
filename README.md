@@ -25,7 +25,7 @@ Habilidades:
 
 Nesse projeto, foram necessárias habilidades de:
 
--Utilizar Componentes de classe
+-Utilizar Componentes Funcionais
 
 -Utilizar Context-API para gerenciar estado
 
